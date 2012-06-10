@@ -1,0 +1,5 @@
+#automatically generated files
+.DS_STORE
+
+#html files generated from restructured text files
+*.html
