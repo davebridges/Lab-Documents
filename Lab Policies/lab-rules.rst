@@ -1,6 +1,16 @@
-Remember when you were growing up and you would say, well when I’m older I will (or won’t) do that.  I have been thinking of that, for my future when I run my own group. It is fairly easy (and as a bit of a blowhard I
-do this all the time) to say I would do this, or I would do that. I think posting this publicly will encourage me to stick to these rules. Below are some roles and a bit of rationale and caveats. This is the first version of this post but future versions will include links to the previous versions. A repository containing an entire revision history is available on `Github`_ with this version denoting revision 0.1.2. The versioning of this document will be defined up as follows: the major number (first digit after the decimal place) is increased when there are
-significant jumps in content, the second number is incremented when only minor content or significant fixes have been added, and the revision number (third digit) is incremented when minor issues are fixed having no impact on the meaning (modified from `Wikipedia’s page on version numbers)`_.New entries will be posted with changes to the major number increments, while minor changes will be incorporated within this post. Check out the `GitHub Repository`_ for more granular changes.
+=========
+Lab Rules
+=========
+Version 0.1.3 on July 14, 2012 by Dave Bridges
+----------------------------------------------
+Remember when you were growing up and you would say, well when I’m older I will (or won’t) do that.  
+I have been thinking of that, for my future when I run my own group. 
+It is fairly easy (and as a bit of a blowhard I do this all the time) to say I would do this, or I would do that. 
+I think posting this publicly will encourage me to stick to these rules. 
+Below are some roles and a bit of rationale and caveats. 
+This is the first version of this post but future versions will include links to the previous versions. 
+The version numbering is described in the `Lab Policies README`_.
+Check out the `GitHub Repository`_ for more granular changes.
 
 Supervision of Trainees
 -----------------------
@@ -55,7 +65,7 @@ Data Sets
     All datasets, once published will be made available in manipulable (preferably non-proprietary) formats for further analysis. 
     Based on the scheme set out by the `Linked Data Research Center Laboratory`_, all data will be provided at level 2 or above.
 
-
+.. _Lab Policies README: https://github.com/davebridges/Lab-Documents/blob/master/Lab%20Policies/README.rst
 .. _Wikipedia’s page on version numbers): http://en.wikipedia.org/wiki/Version_number
 .. _GitHub Repository: https://github.com/davebridges/Lab-Documents/blob/master/Lab%20Policies/lab-rules.rst
 .. _CC-BY: http://creativecommons.org/licenses/by/3.0/
