@@ -1,5 +1,5 @@
 =================
-Authorship-Policy
+Authorship Policy
 =================
 
 What Constitutes Authorship?
