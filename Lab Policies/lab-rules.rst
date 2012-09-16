@@ -1,8 +1,7 @@
 =========
 Lab Rules
 =========
-Version 0.1.3 on July 14, 2012 by Dave Bridges
-----------------------------------------------
+
 Remember when you were growing up and you would say, well when I’m older I will (or won’t) do that.  
 I have been thinking of that, for my future when I run my own group. 
 It is fairly easy (and as a bit of a blowhard I do this all the time) to say I would do this, or I would do that. 
@@ -63,6 +62,8 @@ Presentations
 Data Sets
     All datasets, once published will be made available in manipulable (preferably non-proprietary) formats for further analysis. 
     Based on the scheme set out by the `Linked Data Research Center Laboratory`_, all data will be provided at level 2 or above.
+
+Version 0.1.4 Updated on September 16, 2012 by Dave Bridges
 
 .. _Lab Policies README: https://github.com/davebridges/Lab-Documents/blob/master/Lab%20Policies/README.rst
 .. _Wikipedia’s page on version numbers): http://en.wikipedia.org/wiki/Version_number
