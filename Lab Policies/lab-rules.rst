@@ -58,12 +58,12 @@ Data Sets
     All datasets, once published will be made available in manipulable (preferably non-proprietary) formats for further analysis. 
     Based on the scheme set out by the `Linked Data Research Center Laboratory`_, all data will be provided at level 2 or above.
 
-Version 0.1.5
+Notes
+-----
 
-Updated on February 1, 2013 by Dave Bridges
-
-The version numbering for this document is described in the `Lab Policies README`_.
-Check out the `GitHub Repository`_ for more granular changes.
+* **Version 0.1.6**
+* Updated on February 9, 2013 by Dave Bridges
+* The version numbering for this document is described in the `Lab Policies README`_.  See the `GitHub Repository`_ for more granular changes.
 
 .. _Lab Policies README: https://github.com/davebridges/Lab-Documents/blob/master/Lab%20Policies/README.rst
 .. _Wikipedia page on version numbers): http://en.wikipedia.org/wiki/Version_number
