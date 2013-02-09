@@ -2,14 +2,9 @@
 Lab Rules
 =========
 
-Remember when you were growing up and you would say, well when I’m older I will (or won’t) do that.  
-I have been thinking of that, for my future when I run my own group. 
-It is fairly easy (and as a bit of a blowhard I do this all the time) to say I would do this, or I would do that. 
-I think posting this publicly will encourage me to stick to these rules. 
-Below are some roles and a bit of rationale and caveats. 
-This is the first version of this post but future versions will include links to the previous versions. 
-The version numbering is described in the `Lab Policies README`_.
-Check out the `GitHub Repository`_ for more granular changes.
+This document lists general rules within my group. This describes standard operating procedures within the group in a transparent way.  
+As things evolve the repository containing document will track these changes.  
+I would really appreciate any suggestions or comments.  If you have any please email me at dave.bridges@gmail.com or leave a comment at the relevant `commit`_
 
 Supervision of Trainees
 -----------------------
@@ -35,7 +30,7 @@ Software Development
   If software, scripts or the like are generated they will be released under a permissible open source license such as `CC-BY`_ and the license will be attached explicitly to the source code. Scripts and programs will be uploaded to a public revision control database such as `GitHub`_ or similar (my GitHub profile is `here)`_.
 
 Publishing of Protocols and Scripts
-  When not present in the published article, detailed step by step protocols, data analysis scripts and other things which cannot fit into either methods and materials sections or supplementary materials will be posted online and linked to the publication’s online presence (post or as a comment on the paper’s website).
+  When not present in the published article, detailed step by step protocols, data analysis scripts and other things which cannot fit into either methods and materials sections or supplementary materials will be posted online and linked to the publication's online presence (post or as a comment on the paper's website).
 
 Protocol Sharing
   Protocols will be made available online in a wiki format in a publicly available location, whether they have been published on or not. Editing will be restricted to laboratory members and collaborators.
@@ -63,12 +58,15 @@ Data Sets
     All datasets, once published will be made available in manipulable (preferably non-proprietary) formats for further analysis. 
     Based on the scheme set out by the `Linked Data Research Center Laboratory`_, all data will be provided at level 2 or above.
 
-Version 0.1.4
+Version 0.1.5
 
-Updated on September 16, 2012 by Dave Bridges
+Updated on February 1, 2013 by Dave Bridges
+
+The version numbering for this document is described in the `Lab Policies README`_.
+Check out the `GitHub Repository`_ for more granular changes.
 
 .. _Lab Policies README: https://github.com/davebridges/Lab-Documents/blob/master/Lab%20Policies/README.rst
-.. _Wikipedia’s page on version numbers): http://en.wikipedia.org/wiki/Version_number
+.. _Wikipedia page on version numbers): http://en.wikipedia.org/wiki/Version_number
 .. _GitHub Repository: https://github.com/davebridges/Lab-Documents/blob/master/Lab%20Policies/lab-rules.rst
 .. _CC-BY: http://creativecommons.org/licenses/by/3.0/
 .. _GitHub: http://www.github.com
@@ -76,3 +74,4 @@ Updated on September 16, 2012 by Dave Bridges
 .. _Slideshare: http://www.slideshare.net
 .. _here: http://www.slideshare.net/davebridges
 .. _Linked Data Research Center Laboratory: http://lab.linkeddata.deri.ie/2010/star-scheme-by-example/
+.. _commit: https://github.com/davebridges/Lab-Documents/commits/master
