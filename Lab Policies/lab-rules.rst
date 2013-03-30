@@ -11,12 +11,14 @@ Supervision of Trainees
 
 Trainee-Advisor Contract
     Both myself and trainees (either mine, or co-supervised trainees) will read, discuss and sign a contract describing our roles and responsibilities both as a trainee/employee and a mentor. 
-    This will include data dissemination/publishing rules, expectations of productivity, note keeping and time commitment, rules for dealing with other members both in my group and in collaborations, rules for sharing of reagents and data, rules for adjucating disagreements and grounds and procedures for termination. These rules will be in conformity with any institutional rules. Exceptions can be discussed and the agreement can be modified throughout the term of the relationship. 
-    I will post a generic version of this agreement in a
-    publicly viewable location.
+    This will include data dissemination/publishing rules, expectations of productivity, note keeping and time commitment, rules for dealing with other members both in my group and in collaborations, rules for sharing of reagents and data, rules for adjucating disagreements and grounds and procedures for termination. 
+    These rules will be in conformity with any institutional rules. Exceptions can be discussed and the agreement can be modified throughout the term of the relationship. 
+    I will post a generic version of this agreement in a publicly viewable location.
+
 Online Presence
-    All trainees will appear on the laboratory website and write a blurb about their research interests and goals. Trainees will be strongly encouraged to blog, tweet and otherwise engage in social networking tools regarding their research and the work of others, but this is not required. Links to their publicly available social network
-    profiles will be posted on the laboratory website.
+    All trainees will appear on the laboratory website and write a blurb about their research interests and goals. Trainees will be strongly encouraged to blog, tweet and otherwise engage in social networking tools regarding their research and the work of others, but this is not required. 
+    Links to their publicly available social network profiles will be posted on the laboratory website with their permission.
+
 Open Access Policy
     Trainees will be made aware of the open publishing, dissemination, software and data/reagent sharing policies of the laboratory at the outset and will have to agree to these standards.
 
@@ -41,19 +43,27 @@ Reagent and Tool Sharing
 Publishing and Data Dissemination
 ---------------------------------
 
+Conferences
+    Trainees (graduate students or postdocs) will go to conferences, ideally annually.  They will be expected to apply for travel grants, but I will pay the remainder.  Trainees will need solid, replicated data to attend.  We will determine together which conference is most appropriate.  
+    For meetings, seminars or conferences that the PI attends, we will have a group debriefing where we discuss what was presented, and summarize the questions and discussions.
+
 Open Access Journals
     I believe that all work should be available to the public to read, evaluate and discuss. I am strongly against the mentality that data/knowledge should be restricted to experts and the like. 
-    I will therefore send all papers in which I am corresponding author and have supervised the majority of the work to journals (or their equivalent) which are publicly available. The two major caveats will be for work in which I am a minor (less than 50% effort) collaborator and the primary group leader wants to submit the work elsewhere. 
+    I will therefore send all papers in which I am corresponding author and have supervised the majority of the work to journals which are publicly available. The two major caveats will be for work in which I am a minor (less than 50% effort) collaborator and the primary group leader wants to submit the work elsewhere. 
     This will not exempt any potential major impact publications, no matter how awesome they may be. Delayed open access does not count in this respect.
+
 Open Peer Review
     Journals will be selected which publish non-anonymous reviewer comments alongside the articles whenever possible. If this is not done, and if permissible by the publisher and/or reviewers I will re-post the reviewer comments online without any modifications.
+
 Public Forum for Article Discussion
     Although I will encourage discussion of articles to occur at the point of publication (for example via the posting of comments directly at the website of the publisher), I will also provide a publicly available summary of every published finding from which I am an author (corresponding or not) and allow commenting at that    point too. 
     This discussion post will also link to or contain the reviewer and editor comments where possible. This summary might be a blog post, a facebook post or a google plus post or anything else that might come up in the future. If I am not the primary author or corresponding author I will encourage the first or corresponding author to write the post and link/quote that directly.
+
 Presentations
     All presentations of published data will be posted on an online repository such as `Slideshare`_ or something similar. 
     My slideshare profile is `here`_. If unpublished or preliminary data is presented privately and then is later published, then those slides will be presented upon publication. 
     Similar to papers, an online blog post or the like will also accompany that upload. If audio or video of the presentation is available, that will be uploaded as well.
+
 Data Sets
     All datasets, once published will be made available in manipulable (preferably non-proprietary) formats for further analysis. 
     Based on the scheme set out by the `Linked Data Research Center Laboratory`_, all data will be provided at level 2 or above.
@@ -61,8 +71,8 @@ Data Sets
 Notes
 -----
 
-* **Version 0.1.6**
-* Updated on February 9, 2013 by Dave Bridges
+* **Version 0.1.7**
+* Updated on March 30, 2013 by Dave Bridges
 * The version numbering for this document is described in the `Lab Policies README`_.  See the `GitHub Repository`_ for more granular changes.
 
 .. _Lab Policies README: https://github.com/davebridges/Lab-Documents/blob/master/Lab%20Policies/README.rst
