@@ -1,9 +1,7 @@
 =============================
 Lab Policies Repository Notes
 =============================
----------------------------------------------------
-Version 0.1 Updated 2012-06-10 Author: Dave Bridges
----------------------------------------------------
+
 
 These files are generated via ReStructuredText.  For syntax details see http://docutils.sourceforge.net/docs/user/rst/quickref.html
 
@@ -22,3 +20,13 @@ The versioning of these document will be defined up as follows:
 * the second number is incremented when only minor content or significant fixes have been added
 * the revision number (third digit) is incremented when minor issues are fixed having no impact on the meaning (modified from Wikipedia's page on `version numbers <http://en.wikipedia.org/wiki/Version_number>`_).  
 * New blog entries will be posted with changes to the major number increments, while minor changes will be incorporated within the post.
+
+Notes
+-----
+
+* **Version 0.1.1**
+* Updated on May 26, 2013 by Dave Bridges <dave.bridges@gmail.com>
+* The version numbering for this document is described in the `Lab Policies README`_.  See the `GitHub Repository`_ for more granular changes.
+ 
+.. _Lab Policies README: https://github.com/davebridges/Lab-Documents/blob/master/Lab%20Policies/README.rst
+.. _GitHub Repository: https://github.com/davebridges/Lab-Documents/blob/master/Lab%20Policies/publication-policy.rst
