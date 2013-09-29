@@ -31,5 +31,4 @@ Notes
 
 .. _commit: https://github.com/davebridges/Lab-Documents/commits/master
 .. _Lab Policies README: https://github.com/BridgesLab/Lab-Documents/blob/master/Lab%20Policies/README.rst
-.. _GitHub Repository: 
-https://github.com/BridgesLab/Lab-Documents/blob/master/Lab%20Policies/data-resource-sharing.rst
+.. _GitHub Repository: https://github.com/BridgesLab/Lab-Documents/blob/master/Lab%20Policies/data-resource-sharing.rst
