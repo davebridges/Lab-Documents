@@ -30,6 +30,7 @@ sd <- 3.5 #this is calculated from known measurements
 difference <- 3  #you hope to detect a difference 
 pwr.t.test(d = difference, sig.level = false.negative.rate, power=statistical.power)
 ```
+
 This tells us that in order to see a difference of at least `r difference`, with at standard devation of `r sd` we need at least **`r as.integer(pwr.t.test(d = difference, sig.level = false.negative.rate, power=statistical.power)$n)`** observations in each group.
 
 ### Correlations
@@ -46,11 +47,26 @@ pwr.r.test(r = correlation.coefficient, sig.level = false.negative.rate, power=s
 
 This tells us that in order to detect a correlation coefficient of at least `r correlation.coefficient` (or an R^2 of `r correlation.coefficient^2`) you need more than **`r as.integer(pwr.r.test(r = correlation.coefficient, sig.level = false.negative.rate, power=statistical.power)$n)`** observations.
 
+Corrections for Multiple Observations
+--------------------------------------
+
+The best illustration I have seen for the need for multiple observation corrections is this cartoon from XKCD (see http://xkcd.com/882/):
+
+![Significance by XKCD.  Image is from http://imgs.xkcd.com/comics/significant.png](http://imgs.xkcd.com/comics/significant.png "Significance by XKCD.  Image is from http://imgs.xkcd.com/comics/significant.png")
+
+
+Any conceptually coherent set of observations must therefore be corrected for multiple observations.  In most cases, we will use the method of Benjamini and Hochberg since our p-values are not entirely independent.  Some sample code for this is here:
+
+```{r multiple-observations}
+p.values <- c(0.023, 0.043, 0.056, 0.421, 0.012)
+data.frame(unadjusted = p.values, adjusted=p.adjust(p.values, method="BH"))
+```
+
 References
 -----------
 
 ```{r bibliography, results='asis', echo=FALSE, message=FALSE}
 require(bibtex)
 write.bib(c(names(sessionInfo()$otherPkgs),'base','stats','utils'), file='references.bib')
-bibliography("html") 
+bibliography("markdown")
 ```

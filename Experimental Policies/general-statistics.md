@@ -42,6 +42,7 @@ pwr.t.test(d = difference, sig.level = false.negative.rate, power = statistical.
 ## NOTE: n is number in *each* group
 ```
 
+
 This tells us that in order to see a difference of at least 3, with at standard devation of 3.5 we need at least **3** observations in each group.
 
 ### Correlations
@@ -71,9 +72,35 @@ pwr.r.test(r = correlation.coefficient, sig.level = false.negative.rate, power =
 
 This tells us that in order to detect a correlation coefficient of at least 0.6 (or an R^2 of 0.36) you need more than **19** observations.
 
+Corrections for Multiple Observations
+--------------------------------------
+
+The best illustration I have seen for the need for multiple observation corrections is this cartoon from XKCD (see http://xkcd.com/882/):
+
+![Significance by XKCD.  Image is from http://imgs.xkcd.com/comics/significant.png](http://imgs.xkcd.com/comics/significant.png "Significance by XKCD.  Image is from http://imgs.xkcd.com/comics/significant.png")
+
+
+Any conceptually coherent set of observations must therefore be corrected for multiple observations.  In most cases, we will use the method of Benjamini and Hochberg since our p-values are not entirely independent.  Some sample code for this is here:
+
+
+```r
+p.values <- c(0.023, 0.043, 0.056, 0.421, 0.012)
+data.frame(unadjusted = p.values, adjusted = p.adjust(p.values, method = "BH"))
+```
+
+```
+##   unadjusted adjusted
+## 1      0.023   0.0575
+## 2      0.043   0.0700
+## 3      0.056   0.0700
+## 4      0.421   0.4210
+## 5      0.012   0.0575
+```
+
+
 References
 -----------
 
 
-- Stephane Champely,   (2012) pwr: Basic functions for power analysis.  <a href="http://CRAN.R-project.org/package=pwr">http://CRAN.R-project.org/package=pwr</a>
+- Stephane Champely,   (2012) pwr: Basic functions for power analysis.  [http://CRAN.R-project.org/package=pwr](http://CRAN.R-project.org/package=pwr)
 
