@@ -1,3 +1,6 @@
 [submodule "reviews"]
 	path = reviews
 	url = git@github.com:BridgesLab/reviews.git
+[submodule "rpackages"]
+	path = rpackages
+	url = git@github.com:BridgesLab/rpackages.git
