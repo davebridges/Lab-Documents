@@ -1,0 +1,3 @@
+[submodule "reviews"]
+	path = reviews
+	url = git@github.com:BridgesLab/reviews.git
