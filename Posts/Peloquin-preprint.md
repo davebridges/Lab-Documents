@@ -10,7 +10,7 @@ Obesity is a major health problem, maybe the most dramatic alteration in human p
 What Did We Do?
 ---------------------
 
-We collected several cohorts of data on mouse weights, all sourced from the [genetic stability program](http://jaxmice.jax.org/genetichealth/stability.html) at Jackson labs.  This program is engineered to reduce genetic drift in these inbred lines.  These mice are not genetically identical (the mutation rate in mice is quite [high](http://mouseclique.jax.org/dear-jaxy-how-rapid-is-genetic-drift-in-mouse-colonies/), but they are as close as practically posssible.
+We collected several cohorts of data on mouse weights, all sourced from the [genetic stability program](http://jaxmice.jax.org/genetichealth/stability.html) at Jackson labs.  This program is engineered to reduce genetic drift in these inbred lines.  These mice are not genetically identical (the mutation rate in mice is quite [high](http://mouseclique.jax.org/dear-jaxy-how-rapid-is-genetic-drift-in-mouse-colonies/)), but they are as close as practically posssible.
 
 Within this background, where the gentic and environmental differences are minimized we wanted to ask the question, how predictable is weight gain.  The answer is, its not that predictable!  There was a very broad rangle of endpoint weights after diet induced obesity, moreso than control diet fed mice, or genetically obese mice.
 
