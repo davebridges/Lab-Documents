@@ -16,6 +16,12 @@ Within this background, where the gentic and environmental differences are minim
 
 We then looked back at samples and data we had collected before the mice started the diet to try to figure out retrospectively what best predicted their weight gain.  Surprisingly, their glucose homeostasis, metabolic hormone levels and initial body weights were not predictive of their eventual weight gain at all.  
 
+<a href="https://raw.githubusercontent.com/BridgesLab/PredictorsDietInducedObesity/master/scripts/figure/gain-plot-pct.png">
+<div style="float: right">
+    <img src="https://raw.githubusercontent.com/BridgesLab/PredictorsDietInducedObesity/master/scripts/figure/gain-plot-pct.png" alt="weight-gain-correlation" title="Effects of fasting induced weight loss pre-diet on weight gain during the diet"/ style="width: 200px;">
+</div>
+</a>
+
 What we did find?
 ------------------
 
