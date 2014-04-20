@@ -1,7 +1,7 @@
 The Story Behind the (Pre-) Paper
 ==================================
 
-We recently posted a preprint to bioRxiv called **Weight Loss in Response to Food Deprivation Predicts The Extent of Diet Induced Obesity in C57BL/6J Mice**, as well as to a standard peer reviewed journal.  I discussed why we chose to publish the preprint over on my [old blog](http://dave-bridges.blogspot.com/2014/04/preprints-trying-something-new-in.html).  The raw data and revision history for the analysis is in a public [GitHub reposoitory](http://bridgeslab.github.io/PredictorsDietInducedObesity/) and the paper can be found [here](http://dx.doi.org/10.1101/004283).
+We recently posted a preprint to bioRxiv called **Weight Loss in Response to Food Deprivation Predicts The Extent of Diet Induced Obesity in C57BL/6J Mice**, as well as to a standard peer reviewed journal.  I discussed why we chose to publish the preprint over on my [old blog](http://dave-bridges.blogspot.com/2014/04/preprints-trying-something-new-in.html).  The raw data and revision history for the analysis is in a public [GitHub reposoitory](http://bridgeslab.github.io/PredictorsDietInducedObesity/) and the paper can be found [here](http://dx.doi.org/10.1101/004283).  We would very much like to recieve feedback on this work, so please do so either here, or on the preprint site.
 
 What Were We Looking At?
 ---------------------------
