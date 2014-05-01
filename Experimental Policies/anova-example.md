@@ -21,8 +21,8 @@ with(balloon.data, tapply(size, shape, FUN = function(x) shapiro.test(x)$p.value
 ```
 
 ```
-##    circle    square 
-## 0.2335224 0.0004579
+##   circle   square 
+## 0.005547 0.038849
 ```
 
 ```r
@@ -30,10 +30,10 @@ with(balloon.data, tapply(size, list(color, shape), FUN = function(x) shapiro.te
 ```
 
 ```
-##       circle    square
-## blue  0.1513 0.4988157
-## green 0.7133 0.5227583
-## red   0.6997 0.0006704
+##        circle square
+## blue  0.08744 0.8102
+## green 0.16414 0.8346
+## red   0.07083 0.2541
 ```
 
 
@@ -49,8 +49,8 @@ summary(aov(size ~ shape, data = balloon.data))
 
 ```
 ##             Df Sum Sq Mean Sq F value Pr(>F)
-## shape        1     22    21.5    0.69   0.41
-## Residuals   22    682    31.0
+## shape        1    5.5    5.51    0.58   0.45
+## Residuals   22  207.2    9.42
 ```
 
 ```r
@@ -63,13 +63,13 @@ t.test(size ~ shape, data = balloon.data, var.equal = T)
 ## 	Two Sample t-test
 ## 
 ## data:  size by shape
-## t = 0.8334, df = 22, p-value = 0.4136
+## t = -0.7646, df = 22, p-value = 0.4526
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -2.819  6.606
+##  -3.556  1.640
 ## sample estimates:
 ## mean in group circle mean in group square 
-##                6.091                4.198
+##                2.739                3.697
 ```
 
 ```r
@@ -80,8 +80,8 @@ summary(aov(size ~ color, data = balloon.data))
 
 ```
 ##             Df Sum Sq Mean Sq F value Pr(>F)
-## color        2      8     3.8    0.12   0.89
-## Residuals   21    695    33.1
+## color        2    1.5    0.76    0.08   0.93
+## Residuals   21  211.2   10.06
 ```
 
 
@@ -97,10 +97,10 @@ summary(aov(size ~ color * shape, data = balloon.data))
 
 ```
 ##             Df Sum Sq Mean Sq F value Pr(>F)
-## color        2      8     3.8    0.11   0.90
-## shape        1     22    21.5    0.60   0.45
-## color:shape  2     25    12.6    0.35   0.71
-## Residuals   18    649    36.0
+## color        2    1.5    0.76    0.08   0.92
+## shape        1    5.5    5.51    0.57   0.46
+## color:shape  2   31.4   15.72    1.62   0.22
+## Residuals   18  174.2    9.68
 ```
 
 ```r
@@ -111,9 +111,9 @@ summary(aov(size ~ color + shape, data = balloon.data))
 
 ```
 ##             Df Sum Sq Mean Sq F value Pr(>F)
-## color        2      8     3.8    0.11   0.89
-## shape        1     22    21.5    0.64   0.43
-## Residuals   20    674    33.7
+## color        2    1.5    0.76    0.07   0.93
+## shape        1    5.5    5.51    0.54   0.47
+## Residuals   20  205.7   10.28
 ```
 
 
@@ -131,7 +131,7 @@ with(balloon.data, leveneTest(size ~ shape * shape))
 ```
 ## Levene's Test for Homogeneity of Variance (center = median)
 ##       Df F value Pr(>F)
-## group  1    0.05   0.82
+## group  1       0   0.99
 ##       22
 ```
 
@@ -147,7 +147,7 @@ kruskal.test(size ~ color, data = balloon.data)
 ## 	Kruskal-Wallis rank sum test
 ## 
 ## data:  size by color
-## Kruskal-Wallis chi-squared = 0.66, df = 2, p-value = 0.7189
+## Kruskal-Wallis chi-squared = 0.165, df = 2, p-value = 0.9208
 ```
 
 ```r
@@ -157,8 +157,22 @@ summary(aov(size ~ color, data = balloon.data))
 
 ```
 ##             Df Sum Sq Mean Sq F value Pr(>F)
-## color        2      8     3.8    0.12   0.89
-## Residuals   21    695    33.1
+## color        2    1.5    0.76    0.08   0.93
+## Residuals   21  211.2   10.06
+```
+
+```r
+
+# test for normality by runnning a shapiro test on the residuals
+shapiro.test(residuals(aov(size ~ color + shape, data = balloon.data)))
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  residuals(aov(size ~ color + shape, data = balloon.data))
+## W = 0.8272, p-value = 0.0008499
 ```
 
 

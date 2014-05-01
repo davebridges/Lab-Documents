@@ -57,6 +57,9 @@ with(balloon.data, leveneTest(size~shape*shape))
 kruskal.test(size~color, data=balloon.data)
 #anova for comparason
 summary(aov(size~color, data=balloon.data))
+
+#test for normality by runnning a shapiro test on the residuals
+shapiro.test(residuals(aov(size~color+shape, data=balloon.data)))
 ```
 
 Session Information
