@@ -62,6 +62,40 @@ summary(aov(size~color, data=balloon.data))
 shapiro.test(residuals(aov(size~color+shape, data=balloon.data)))
 ```
 
+Post-Hoc Tests
+----------------
+
+If you get a significant result from the omnibus ANOVA, you often will want to do further post-hoc testing to look at pairwise comparisons.  There are three main ways to do this:
+
+* Pairwise T-Tests (remember to check the assumptions of normality and equal variance when choosing a test)
+* Tukey's Honest Significant Difference -- Compares all combinations
+* Dunnett's Test -- Compares all values to a control
+
+```{r post-hoc-tests}
+#save an anova object
+balloon.aov <- aov(size~color,  data=balloon.data)
+#can run a Tukey's test on this
+TukeyHSD(balloon.aov)
+#this is the same as:
+library(multcomp)
+summary(glht(balloon.aov, linfct=mcp(color="Tukey")))
+
+#Can also use glht for Dunnett's tests
+#define the control group to what you want to compare to
+balloon.data$color <- relevel(balloon.data$color, ref="blue")
+#run a dunnett's test
+summary(glht(balloon.aov, linfct=mcp(color="Dunnett")))
+#default is single-step but can manually set FDR adjustments
+summary(glht(balloon.aov, linfct=mcp(color="Dunnett")), adjusted(type="BH"))
+summary(glht(balloon.aov, linfct=mcp(color="Dunnett")), adjusted(type="bonferroni"))
+
+#to do pairwise t tests can do
+pairwise.t.test(balloon.data$size, balloon.data$color)
+#default is Holm but can set to whatever you want or none
+pairwise.t.test(balloon.data$size, balloon.data$color, p.adjust.method="BH")
+pairwise.t.test(balloon.data$size, balloon.data$color, p.adjust.method="none")
+```
+
 Session Information
 --------------------
 
