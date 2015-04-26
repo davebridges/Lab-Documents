@@ -20,7 +20,8 @@ We used several different muscle fly drivers to knockdown *Raptor* and reduce mT
 What we did find?
 ------------------
 
-The first major finding, was that the knockdown of *Raptor* in GAL4 drivers that were expressed early in the differentiation process (24B, C179 and Mef2) was lethal or nearly lethal.  The flies looked normal up to their eclosure from their pupal cases, but never emerged.  If we "helped" them emerge by manually opening their cases they could crawl out but they were very weak and died very early.  We thought that this meant the flies had impaired muscular development.
+The first major finding, was that the knockdown of *Raptor* in GAL4 drivers that were expressed early in the differentiation process (24B, C179 and Mef2) was lethal or nearly lethal.  The flies looked normal up to their eclosure from their pupal cases, but never emerged.  If we "helped" them emerge by manually opening their cases they could crawl out but they were very weak and died very early (see ![this figure](http://www.nature.com/srep/2015/150407/srep09676/images/srep09676-f4.jpg "*Raptor* knockdown flies fail to eclose and were weaker if assisted" =250x)
+).  We thought that this meant the flies had impaired muscular development.
 
 We went back and did some characterization of differentiation in a mouse C2C12 line and found that while *Mef2c* was expressed early in differentiation, myosin heavy chain *Mhc* was expressed quite late.  We then went back and used the muscle *Mhc-GAL4* strain and repeated the *Raptor* knockdown experiments.  In these cases, the flies could emerge in normal numbers, and lived near-normal lifespans but still died earlier than their wild-type controls.
 
