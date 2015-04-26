@@ -1,7 +1,7 @@
 The Story Behind the Paper: The role of TORC1 in muscle development in Drosophila
 ===================================================================================
 
-This work was recently published in Scientific Reports and can be freely accessed [here](http://dx.doi.org/10.1038/srep09676 "The role of TORC1 in muscle development in Drosophila").  Earlier preprints were uploaded to [bioRxiv](http://dx.doi.org/10.1101/010991).  Izzy Hatfield, an undergraduate who was the first person hired in the lab did most of this work, with Innocence Harvey, a graduate student doing most of the cell culture studies during her rotation project.  All the fly work was done in collaboration with the Reiter lab, and the UTHSC Drosophila Transgenic Core. 
+This work was recently published in Scientific Reports and can be freely accessed [here](http://dx.doi.org/10.1038/srep09676 "The role of TORC1 in muscle development in Drosophila").  Earlier preprints were uploaded to [bioRxiv](http://dx.doi.org/10.1101/010991).  Izzy Hatfield, an undergraduate who was the first person hired in the lab did most of this work, with Innocence Harvey, a graduate student doing most of the cell culture studies during her rotation project.  All the fly work was done in collaboration with the Reiter lab, and the UTHSC Drosophila Transgenic Core.  The data and code for this project are available at [Github](http://bridgeslab.github.io/DrosophilaMuscleFunction/) and are archived at [Zenodo](http://dx.doi.org/10.5281/zenodo.16241 "Dataset for Drosophila Muscle Function Studies")
 
 
 What Were We Looking At?
