@@ -1,7 +1,11 @@
 The Story Behind the Paper: The role of TORC1 in muscle development in Drosophila
 ===================================================================================
 
+<span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.jtitle=Scientific+Reports&rft_id=info%3Adoi%2F10.1038%2Fsrep09676&rfr_id=info%3Asid%2Fresearchblogging.org&rft.atitle=The+role+of+TORC1+in+muscle+development+in+Drosophila&rft.issn=2045-2322&rft.date=2015&rft.volume=5&rft.issue=&rft.spage=9676&rft.epage=&rft.artnum=http%3A%2F%2Fwww.nature.com%2Fdoifinder%2F10.1038%2Fsrep09676&rft.au=Hatfield%2C+I.&rft.au=Harvey%2C+I.&rft.au=Yates%2C+E.&rft.au=Redd%2C+J.&rft.au=Reiter%2C+L.&rft.au=Bridges%2C+D.&rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CMedicine%2CDevelopmental+Biology%2C+Aging%2C+Metabolism">Hatfield, I., Harvey, I., Yates, E., Redd, J., Reiter, L., & Bridges, D. (2015). The role of TORC1 in muscle development in Drosophila <span style="font-style: italic;">Scientific Reports, 5</span> DOI: <a rev="review" href="http://dx.doi.org/10.1038/srep09676">10.1038/srep09676</a></span>
+
 This work was recently published in Scientific Reports and can be freely accessed [here](http://dx.doi.org/10.1038/srep09676 "The role of TORC1 in muscle development in Drosophila").  Earlier preprints were uploaded to [bioRxiv](http://dx.doi.org/10.1101/010991).  Izzy Hatfield, an undergraduate who was the first person hired in the lab did most of this work, with Innocence Harvey, a graduate student doing most of the cell culture studies during her rotation project.  All the fly work was done in collaboration with the Reiter lab, and the UTHSC Drosophila Transgenic Core.  The data and code for this project are available at [Github](http://bridgeslab.github.io/DrosophilaMuscleFunction/) and are archived at [Zenodo](http://dx.doi.org/10.5281/zenodo.16241 "Dataset for Drosophila Muscle Function Studies")
+
+<span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img alt="ResearchBlogging.org" src="http://www.researchblogging.org/public/citation_icons/rb2_large_gray.png" style="border:0;"/></a></span>
 
 
 What Were We Looking At?
