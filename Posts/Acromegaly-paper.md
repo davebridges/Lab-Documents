@@ -26,14 +26,12 @@ The acromegaly subjects were taller and slightly leaner than the controls, as we
 
 <figure>
 <img src="http://journals.plos.org/plosone/article/figure/image?size=large&id=info:doi/10.1371/journal.pone.0129359.g002" alt="Heatmap of gene expression changes" align="left" width="150px">
-<figcaption>Heatmap of differentially expressed genes in Acromegaly.</figcaption>
 </figure>
 
 To understand more about the molecular changes we performed RNA sequencing analysis of the adipose tissue.  This technique is used to evaluate changes in mRNA levels in an unbiased manner across the genome.  We found 418 genes with differential expression between the controls and the acromegalics.  Interestingly, we found that as a person ages the amount of the change was reduced, potentially due to reduced GH/IGF1 levels as one ages, even in acromegalics.
 
 <figure>
 <img src="http://journals.plos.org/plosone/article/figure/image?size=large&id=info:doi/10.1371/journal.pone.0129359.g003", alt="Gene expression in older and younger control and acromegalic white adipose tissue" align="right" width="400px">
-<figcaption>mRNA Expression of selected genes in older and younger acromegalic white adipose tissue</figcaption>
 </figure>
 
 The major pathways that were changed were GH/IGF1 signaling was reduced (probably to compensate for increased activation) lipogenesis genes were upregulated (maybe to resynthesize the effluxing fatty acids).  The best bet to understand the increased lipolysis was an upregulation of lipoprotein lipase (*LPL*) and two activators of the adipocyte triglyceride lipase (ATGL encoded by the *PNPLA2* gene), CGI58 (encoded by *ABHD5*) and RIP140 (*NRIP1*).  Finally we saw a dramatic downregulation of *HSD11B1*, an enzyme that promotes glucocorticoid signaling.
