@@ -6,9 +6,9 @@
 
 2. Han J, Li E, Chen L, Zhang Y, Wei F, Liu J, Deng H, Wang Y. The CREB coactivator CRTC2 controls hepatic lipid metabolism by regulating SREBP1. Nature 2015. doi: 10.1038/nature14557.
 
-4. Koch M, Varela L, Kim JG, Kim JD, Hernández-Nuño F, Simonds SE, Castorena CM, Vianna CR, Elmquist JK, Morozov YM, Rakic P, Bechmann I, Cowley M A., Szigeti-Buck K, Dietrich MO, Gao X-B, Diano S, Horvath TL. Hypothalamic POMC neurons promote cannabinoid-induced feeding. Nature 2015. doi: 10.1038/nature14260.
+3. Koch M, Varela L, Kim JG, Kim JD, Hernández-Nuño F, Simonds SE, Castorena CM, Vianna CR, Elmquist JK, Morozov YM, Rakic P, Bechmann I, Cowley M A., Szigeti-Buck K, Dietrich MO, Gao X-B, Diano S, Horvath TL. Hypothalamic POMC neurons promote cannabinoid-induced feeding. Nature 2015. doi: 10.1038/nature14260.
 
-5. Wall CE, Whyte J, Suh JM, Fan W, Collins B, Liddle C, Yu RT, Atkins AR, Naviaux JC, Li K, Bright AT, Alaynick WA, Downes M, Naviaux RK, Evans RM. High-fat diet and FGF21 cooperatively promote aerobic thermogenesis in mtDNA mutator mice. Proc Natl Acad Sci 112: 8714–8719, 2015.  doi: 10.1073/pnas.1509930112
+4. Wall CE, Whyte J, Suh JM, Fan W, Collins B, Liddle C, Yu RT, Atkins AR, Naviaux JC, Li K, Bright AT, Alaynick WA, Downes M, Naviaux RK, Evans RM. High-fat diet and FGF21 cooperatively promote aerobic thermogenesis in mtDNA mutator mice. Proc Natl Acad Sci 112: 8714–8719, 2015.  doi: 10.1073/pnas.1509930112
 
 5. Morley TS, Xia JY, Scherer PE. Selective enhancement of insulin sensitivity in the mature adipocyte is sufficient for systemic metabolic improvements. Nat Commun 6: 7906, 2015. doi: 10.1038/ncomms8906
 
