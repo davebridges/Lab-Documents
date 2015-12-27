@@ -4,7 +4,11 @@
 
 * Tsai S, Sitzmann JM, Dastidar SG, Rodriguez A a, Vu SL, McDonald CE, Academia EC, O’Leary MN, Ashe TD, La Spada AR, Kennedy BK. Muscle-specific 4E-BP1 signaling activation improves metabolic parameters during aging and obesity. J Clin Invest 125: 2952–64, 2015. doi: [10.1172/JCI77361](http://dx.doi.org/10.1172/JCI77361).
 
+4EBP1 is a translational repressor that is inhibited by mTORC1 signaling.  [Brian Kennedy's group at the Buck Institute](http://www.buckinstitute.org/kennedyLab) described a constitutively active 4EBP1 transgenic and studied the effects of its overexpression in both fat and muscle tissue.  Interestingly the muscle mice had a fiber-type switch (towards oxidative fibers), increased energy expenditure and reduced adipose tissue.  This paper nicely highlighted the tissue-specific roles of mTORC1 in energy homeostasis.
+
 * Han J, Li E, Chen L, Zhang Y, Wei F, Liu J, Deng H, Wang Y. The CREB coactivator CRTC2 controls hepatic lipid metabolism by regulating SREBP1. Nature 2015. doi: [10.1038/nature14557](http://dx.doi.org/10.1038/nature14557).
+
+The way in which mTORC1 activates SREBP1c to promote lipid synthesis has proven elusive for quite some time.  This paper from [Yighuo Wang's group at Tsinghua University](http://life.tsinghua.edu.cn/english/faculty/faculty/2099.html) suggests that at least part of this is through phosphorylation of CRTC2 by mTORC1 which interupts the trafficking and processing of SREBP1c in the Golgi.
 
 * Koch M, Varela L, Kim JG, Kim JD, Hernández-Nuño F, Simonds SE, Castorena CM, Vianna CR, Elmquist JK, Morozov YM, Rakic P, Bechmann I, Cowley M A., Szigeti-Buck K, Dietrich MO, Gao X-B, Diano S, Horvath TL. Hypothalamic POMC neurons promote cannabinoid-induced feeding. Nature 2015. doi: [10.1038/nature14260](http://dx.doi.org/10.1038/nature14260).
 
