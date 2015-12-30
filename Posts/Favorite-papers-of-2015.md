@@ -1,11 +1,13 @@
 # Our Favorite Papers of 2015
 
+There were a lot of really cool advances in our understanding energy balance and the signalling mechanisms that underlie endocrine control of appetite and metabolism.  Here are a few of the papers that we thought were the most interesting from the year.
+
 ## Regulation of Energy Balance
 
 * Tsai S, Sitzmann JM, Dastidar SG, Rodriguez A a, Vu SL, McDonald CE, Academia EC, O’Leary MN, Ashe TD, La Spada AR, Kennedy BK. Muscle-specific 4E-BP1 signaling activation improves metabolic parameters during aging and obesity. J Clin Invest 125: 2952–64, 2015. doi: [10.1172/JCI77361](http://dx.doi.org/10.1172/JCI77361).
 *. Guridi M, Tintignac LA, Lin S, Kupr B, Castets P, Rüegg MA. Activation of mTORC1 in skeletal muscle regulates whole-body metabolism through FGF21. Sci Signal 8: ra113–ra113, 2015.
 
-4EBP1 is a translational repressor that is inhibited by mTORC1 signaling.  [Brian Kennedy's group at the Buck Institute](http://www.buckinstitute.org/kennedyLab) described a constitutively active 4EBP1 transgenic and studied the effects of its over-expression in both fat and muscle tissue.  This was followed up shortly by Markus Rüegg's group at [Universitat Basel](http://www.biozentrum.unibas.ch/research/groups-platforms/overview/unit/rueegg/), who looked at constitutively active mTORC1 muscles (via *Tsc1* knockout).  Interestingly in both cases muscle mice had a fiber-type switch (towards oxidative fibers), increased energy expenditure and reduced adipose tissue.  Both papers also implicate muscle derived FGF21 as medating some of these effects.  Both papers nicely highlighted the tissue-specific roles of mTORC1 in energy homeostasis.
+4EBP1 is a translational repressor that is inhibited by mTORC1 signaling.  [Brian Kennedy's group at the Buck Institute](http://www.buckinstitute.org/kennedyLab) described a constitutively active 4EBP1 transgenic and studied the effects of its over-expression in both fat and muscle tissue.  This was followed up shortly by [Markus Rüegg's group at Universitat Basel](http://www.biozentrum.unibas.ch/research/groups-platforms/overview/unit/rueegg/), who looked at constitutively active mTORC1 muscles (via *Tsc1* knockout).  Interestingly in both cases muscle mice had a fiber-type switch (towards oxidative fibers), increased energy expenditure and reduced adipose tissue.  Both papers also implicate muscle derived FGF21 as medating some of these effects.  Both papers nicely highlighted the tissue-specific roles of mTORC1 in energy homeostasis.
 
 * Han J, Li E, Chen L, Zhang Y, Wei F, Liu J, Deng H, Wang Y. The CREB coactivator CRTC2 controls hepatic lipid metabolism by regulating SREBP1. Nature 2015. doi: [10.1038/nature14557](http://dx.doi.org/10.1038/nature14557).
 
