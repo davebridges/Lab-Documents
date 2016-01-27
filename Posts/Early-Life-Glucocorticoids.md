@@ -9,10 +9,10 @@ Though the above studies include other factors that may confound the acquired da
 
 ## References
 
-1. 	Wilson CL, Liu W, Yang JJ, et al. Genetic and clinical factors associated with obesity among adult survivors of childhood cancer: A report from the St. Jude Lifetime Cohort. Cancer. 2015;121(13):1-9. doi:10.1002/cncr.29153.
-2. 	Chow EJ, Pihoker C, Hunt K, Wilkinson K, Friedman DL. Obesity and hypertension among children after treatment for acute lymphoblastic leukemia. Cancer. 2007;110(10):2313-2320. doi:10.1002/cncr.23050.
-3. 	Van Dongen-Melman JEWM, Hokken-Koelega  a CS, Hählen K, Groot  a De, Tromp CG, Egeler RM. Obesity after Successful Treatment of Acute Lymphoblastic Leukemia in Childhood. Pediatr Res. 1995;38(1):86-90. doi:10.1203/00006450-199507000-00015.
+1. 	Wilson CL, Liu W, Yang JJ, et al. Genetic and clinical factors associated with obesity among adult survivors of childhood cancer: A report from the St. Jude Lifetime Cohort. Cancer. 2015;121(13):1-9. doi:[10.1002/cncr.29153](http://dx.doi.org/10.1002/cncr.29153).
+2. 	Chow EJ, Pihoker C, Hunt K, Wilkinson K, Friedman DL. Obesity and hypertension among children after treatment for acute lymphoblastic leukemia. Cancer. 2007;110(10):2313-2320. doi:[10.1002/cncr.23050](http://dx.doi.org/10.1002/cncr.23050).
+3. 	Van Dongen-Melman JEWM, Hokken-Koelega  a CS, Hählen K, Groot  a De, Tromp CG, Egeler RM. Obesity after Successful Treatment of Acute Lymphoblastic Leukemia in Childhood. Pediatr Res. 1995;38(1):86-90. doi:[10.1203/00006450-199507000-00015](http://dx.doi.org/10.1203/00006450-199507000-00015).
 4. 	Felitti VJ. The Relation between Adverse Childhood Experiences and Adult Health. Perm J. 2002;6(1):44-47.
-5. 	Gundersen C, Mahatmya D, Garasky S, Lohman B. Linking psychosocial stressors and childhood obesity. Obes Rev. 2011;12(5):e54-e63. doi:10.1111/j.1467-789X.2010.00813.x.
-6. 	Tamayo T, Christian H, Rathmann W. Impact of early psychosocial factors (childhood socioeconomic factors and adversities) on future risk of type 2 diabetes, metabolic disturbances and obesity: a systematic review. BMC Public Health. 2010;10:525. doi:10.1186/1471-2458-10-525.
+5. 	Gundersen C, Mahatmya D, Garasky S, Lohman B. Linking psychosocial stressors and childhood obesity. Obes Rev. 2011;12(5):e54-e63. doi:[10.1111/j.1467-789X.2010.00813.x](http://dx.doi.org/10.1111/j.1467-789X.2010.00813.x).
+6. 	Tamayo T, Christian H, Rathmann W. Impact of early psychosocial factors (childhood socioeconomic factors and adversities) on future risk of type 2 diabetes, metabolic disturbances and obesity: a systematic review. BMC Public Health. 2010;10:525. doi:[10.1186/1471-2458-10-525](http://dx.doi.org/10.1186/1471-2458-10-525).
 
