@@ -1,6 +1,6 @@
 # Validation of RNAseq Experiments by qPCR?
 
-This was originally posted at http://dave-bridges.blogspot.com/2014/11/validation-of-rnaseq-experiments-by-qpcr.html on 9 November 2014:
+This was originally posted [here](http://dave-bridges.blogspot.com/2014/11/validation-of-rnaseq-experiments-by-qpcr.html) on 9 November 2014:
 
 
 This post is in response to a couple of twitter discussions regarding whether its "useful" to do <a href="http://en.wikipedia.org/wiki/Real-time_polymerase_chain_reaction">qPCR</a> validation of <a href="http://en.wikipedia.org/wiki/RNA-Seq">RNAseq</a> hits:
