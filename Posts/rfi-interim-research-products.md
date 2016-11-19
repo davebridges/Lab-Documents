@@ -5,24 +5,15 @@ This post is our response to the NIH Request for Information on **Preprints and 
 
 Our lab lab generates a variety of interim research products to improve the speed of publication, rigor and reproducibility of our work and to make our results widely available to interested parties.  
 
-<dl>
-
-<dt>Preprints</dt>
-</dd>
+### Preprints
 We aim to publish our papers as preprints where possible, typically using BioRxiv.  We believe that this is an important advance in scientific publishing, allowing us to rapidly publish our work, and gain feedback on our studies from an audience in addition to the peer review process.  Our standard lab practice is that publications from our lab are posted to a preprint server either coincident with, or shortly before submission to a peer-reviewed journal.  Upon acceptance, a link to the final version of the paper is posted on BioRxiv directing the reader to the canonical article
-</dd>
 
-<dt>Datasets</dt>
-</dd>
+
+### Datasets
 We publish raw datasets along with all analysis scripts for our studies in two venues.  We use [Github](http://bridgeslab.github.io/) for version control, and at various stages of the publication process, we archive these datasets through [Zenodo](https://www.zeodo.org/).  This simple process (described [here](https://guides.github.com/activities/citable-code/)).  This has several advantages, including presentation of data not in the final publication, and allows for re-use or statistical re-analysis of our datasets if needed.  Our datasets do not include any data that is restricted due to IRB guidance.
-</dd>
 
-<dt>Experimental Protocols</dt>
-</dd>
+### Experimental Protocols
 Protocols in molecular biology are often described in very limited terms, and can be difficult to repeat without further details lacking in the final publication.  We publish our internal laboratory methods at http://bridgeslab.sph.umich.edu/protocols, including version control and revision history to track any changes if our protocols evolve.
-</dd>
-
-</dl>
 
 ## Utility of these Products
 
