@@ -4,7 +4,7 @@ Every year we like to come up with some of the papers we really enjoyed reading 
 
 ## Regulation of Energy Expenditure
 
-* 1. Liu D, Bordicchia M, Zhang C, Fang H, Wei W, Li J-L, Guilherme A, Guntur K, Czech MP, Collins S. Activation of mTORC1 is essential for β-adrenergic stimulation of adipose browning. J Clin Invest. 2016; 126: 1704–16. [doi: 10.1172/JCI83532](http://dx.doi.org/10.1172/JCI83532).
+* Liu D, Bordicchia M, Zhang C, Fang H, Wei W, Li J-L, Guilherme A, Guntur K, Czech MP, Collins S. Activation of mTORC1 is essential for β-adrenergic stimulation of adipose browning. J Clin Invest. 2016; 126: 1704–16. [doi: 10.1172/JCI83532](http://dx.doi.org/10.1172/JCI83532).
 
 This paper from [Sheila Collins's lab](http://www.sbpdiscovery.org/team/sheila-collins-phd) at Sanford Burhnam Prebys Medical Discovery Institute showed that adrenergic stimuli, including cold stress can activate [mTORC1](https://en.wikipedia.org/wiki/MTORC1) (in addition to the better known anabolic stimuli such as growth factors, amino acids and AMPK inhibition) in adipose tissue. but then showed that adipose mTORC1 activity is essential for maintaining thermal stability upon cold stress.  This highlights the important role of mTORC1 not only in anabolic, but also in catabolic responses to over-nutrition - [DB](http://bridgeslab.sph.umich.edu/people/dave-bridges/).
 
@@ -14,4 +14,6 @@ Towards the end of the calendar year, this paper led by [Bruce Spiegelman's grou
 
 ## Regulation of Lipid Metabolism
 
-* Suzuki T, Muramatsu T, Morioka K, Goda T, Mochizuki K. ChREBP binding and histone modifications modulate hepatic expression of the Fasn gene in a metabolic syndrome rat model. Nutrition. Elsevier Inc.; 2015; 31: 877–83. [doi: 10.1016/j.nut.2015.01.005](http://dx.doi.org/10.1016/j.nut.2015.01.005).
+* Kim M-S, Krawczyk SA, Doridot L, Fowler AJ, Wang JX, Trauger SA, Noh H, Kang HJ, Meissen JK, Blatnik M, Kim JK, Lai M, Herman MA. ChREBP regulates fructose-induced glucose production independently of insulin signaling. J Clin Invest. 2016; 126: 4372–86. [doi: 10.1172/JCI81993](http://dx.doi.org/10.1172/JCI81993).
+
+This paper from [Mark Herman's group](http://www.bidmc.org/Research/Departments/Medicine/Divisions/Endocrinology/Laboratories/Herman-Lab.aspx) at Beth Israel Deaconess Medical Center showed the dramatic responses of [ChREBP](https://en.wikipedia.org/wiki/Carbohydrate-responsive_element-binding_protein) to fructose, and how glucoregulatory responses to both a fructose and a glucagon challenge are ablated in ChREBP knockouts.  They then show that fructose-induced activation of ChREBP targets are independent of insulin signaling.  These studies are consistent with a model in which fructose exacerbates hyperglycemia and *de novo* lipogenesis, independent of hyperinsulinemia.
