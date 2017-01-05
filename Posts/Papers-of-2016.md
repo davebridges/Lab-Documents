@@ -1,6 +1,6 @@
 # Our Favorite Papers of 2016
 
-Every year we like to come up with some of the papers we really enjoyed reading this year during our journal club (see [here]() for last year's papers).  Here are some of our favorites from this year
+Every year we like to come up with some of the papers we really enjoyed reading this year during our journal club (see [here](http://bridgeslab.sph.umich.edu/posts/our-favorite-papers-of-2015) for last year's papers).  Here are some of our favorites from this year
 
 ## Modulation of Energy Expenditure
 
@@ -25,3 +25,7 @@ Kim *et al.* found that Dexras1, a glucocorticoid receptor target (confirmed by 
 * Mueller KM, Hartmann K, Kaltenecker D, Vettorazzi S, Bauer M, Mauser L, Amann S, Jall S, Fischer K, Esterbauer H, Müller TD, Tschöp MH, Magnes C, et al. **Adipocyte Glucocorticoid Receptor Deficiency Attenuates Aging- and Hfd-Induced Obesity, and Impairs the Feeding-Fasting Transition.** Diabetes. 2016; : db160381. [doi: 10.2337/db16-0381](http://dx.doi.org/10.2337/db16-0381g).
 
 In this article Mueller and colleagues investigate the role of the glucocorticoid receptor in adipose tissue (using adipose tissue specific GR KO mice) in the development of insulin resistance and fatty liver under a multitude of circumstances such as aging, HFD-induced obesity and prolonged fasting. The overall findings indicate that ablation of the GR solely in adipose tissue results in enhanced insulin sensitivity, decreased lipolysis, decreased subcutaneous and visceral fat mass and cell volume and prevents liver steatosis - [Innocence](http://bridgeslab.sph.umich.edu/people/innocence-harvey/).
+
+* Marino JS, Stechschulte LA, Stec DE, Nestor-Kalinoski A, Coleman S, Hinds TD. **Glucocorticoid receptor β induces hepatic steatosis by augmenting inflammation and inhibition of the peroxisome proliferator-activated receptor (PPAR) α.** J Biol Chem. 2016; 291: 9383–94. [doi: 10.1074/jbc.M116.752311](http://dx.doi.org).
+
+Marino and associates studied the relationship between GRβ  and hepatic steatosis and found that GRβ  is increased in mouse liver and adipose tissue, but not muscle in response to HFD. Overexpression of GRβ  in the liver led to enhanced FASN and pro-inflammatory markers paired with reductions in anti-inflammatory markers, PTEN (low levels of this protein have been associated with the development of NASH) and PPARy promoter activity. The authors state that enhanced GRβ  leads to liver steatosis via increased hepatic lipid accumulation and decreased b-oxidation and suggest that prolonged elevations of GRβ  may lead to further progression of liver disease - [Innocence](http://bridgeslab.sph.umich.edu/people/innocence-harvey/).
