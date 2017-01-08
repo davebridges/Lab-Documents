@@ -37,3 +37,13 @@ In this article, Seeley and colleagues examined the role of Fibroblast Growth Fa
 
 This paper from [Mark Herman's group](http://www.bidmc.org/Research/Departments/Medicine/Divisions/Endocrinology/Laboratories/Herman-Lab.aspx) at Beth Israel Deaconess Medical Center showed the dramatic responses of [ChREBP](https://en.wikipedia.org/wiki/Carbohydrate-responsive_element-binding_protein) to fructose, and how glucoregulatory responses to both a fructose and a glucagon challenge are ablated in ChREBP knockouts.  They then show that fructose-induced activation of ChREBP targets are independent of insulin signaling.  These studies are consistent with a model in which fructose exacerbates hyperglycemia and *de novo* lipogenesis, independent of hyperinsulinemia - [Dave](http://bridgeslab.sph.umich.edu/people/dave-bridges/).
 
+## Transgenerational Inheritance
+
+* Cropley JE, Eaton SA, Aiken A, Young PE, Giannoulatou E, Ho JWK, Buckland ME, Keam SP, Hutvagner G, Humphreys DT, Langley KG, Henstridge DC, Martin DIK, *et al.* **Male-lineage transmission of an acquired metabolic phenotype induced by grand-paternal obesity.** Mol Metab. 2016; 5(8): 699-708. [doi: 10.1016/j.molmet.2016.06.008](http://dx.doi.org/10.1016/j.molmet.2016.06.008).
+
+This study design is unique because it evaluates males in the transmission of an acquired trait instead of females, which has been more extensively studied. It was found that worsened metabolic outcomes persisted through the F3 generation. These deleterious effects were seen only after exposure to western diet. Males with a father or grandfather who suffered from obesity may have the ability to pass down to their offspring a greater risk of metabolic illness, even if they are lean and healthy - [Molly](http://bridgeslab.sph.umich.edu/people/molly-carter/).
+
+* Srinivasan M, Dodds C, Ghanim H, Gao T, Ross PJ, Browne RW, Dandona P, Patel MS. **Maternal obesity and fetal programming: effects of a high-carbohydrate nutritional modification in the immediate postnatal life of female rats.** Am J Physiol Endocrinol Metab. 2008; 295: E895-903. doi: [10.1152/ajpendo.90460.2008](http://dx.doi.org/10.1152/ajpendo.90460.2008).
+
+This study evaluates high carbohydrate and maternal obesity on metabolic outcomes of the offspring. The researchers also aimed to separate origin of the egg from the intrauterine environment by completing embryo transfer studies. This study suggests that intrauterine environment and inflammation due to maternal obesity may be one of the mechanisms that predispose offspring to hyperphagia and poor metabolic health  - [Molly](http://bridgeslab.sph.umich.edu/people/molly-carter/).
+
