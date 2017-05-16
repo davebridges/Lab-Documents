@@ -93,7 +93,7 @@ These data can be found in `r getwd()` in a file named `r filename`.  This scrip
 
 This will render as this:
 
-These data can be found in /Users/davebrid/Documents/GitHub/Lab-Documents/Experimental Policies in a file named testfile.csv.  This script was most recently updated on Mon May 15 22:32:10 2017.
+These data can be found in /Users/davebrid/Documents/GitHub/Lab-Documents/Experimental Policies in a file named testfile.csv.  This script was most recently updated on Tue May 16 09:20:30 2017.
 
 This clearly indicates where to find the file, and when it was most recently updated.  This is helpful for when printing out your Rmarkdown files and finding the data from your notes on the data server.
 
