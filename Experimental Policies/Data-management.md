@@ -46,7 +46,7 @@ Processed data could be calculated data, or figures.  These are created by the R
 
 There is a lot of details about the syntax of your Rmarkdown file here: 
 
-Generally your Rmarkdown files should have these sections
+Generally your Rmarkdown files should have these sections.  If you want a template as a starting point try using this one https://raw.githubusercontent.com/BridgesLab/Lab-Documents/master/Experimental%20Policies/Rmarkdown-template.Rmd
 
 **Purpose**: Make a brief description of why you did the experiment, ideally explicitly stating your hypothesis.
 
@@ -93,7 +93,7 @@ These data can be found in `r getwd()` in a file named `r filename`.  This scrip
 
 This will render as this:
 
-These data can be found in /Users/davebrid/Documents/GitHub/Lab-Documents/Experimental Policies in a file named testfile.csv.  This script was most recently updated on Tue May 16 09:20:30 2017.
+These data can be found in /Users/davebrid/Documents/GitHub/Lab-Documents/Experimental Policies in a file named testfile.csv.  This script was most recently updated on Tue May 16 15:05:16 2017.
 
 This clearly indicates where to find the file, and when it was most recently updated.  This is helpful for when printing out your Rmarkdown files and finding the data from your notes on the data server.
 
