@@ -1,7 +1,7 @@
 ---
-title: "An Informative Title"
-author: "Your Name"
-date: "The Date the Scipt Was First Generated"
+title: "Informative title"
+author: "Authors"
+date: "Date script was first written"
 output:
   pdf_document:
     highlight: tango
@@ -12,6 +12,7 @@ output:
 
 ```{r global_options, include=FALSE}
 library(knitr)
+#figures makde will go to directory called figures, will make them as both png and pdf files 
 opts_chunk$set(fig.path='figures/',
                echo=FALSE, warning=FALSE, message=FALSE,dev=c('png','pdf'))
 options(scipen = 2, digits = 3)
@@ -69,4 +70,6 @@ A brief summary of what the interpretation of these results were
 sessionInfo()
 ```
 
-**References**: If needed, using Rmarkdown citation tools (see this link for more information: http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
+# References
+
+If needed, using Rmarkdown citation tools (see this link for more information: http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
