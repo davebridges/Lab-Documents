@@ -6,7 +6,12 @@ output:
   pdf_document:
     highlight: tango
     keep_tex: yes
-    number_sections: no
+    number_sections: yes
+    toc: yes
+  html_document:
+    highlight: tango
+    keep_md: yes
+    number_sections: yes
     toc: yes
 ---
 
@@ -50,11 +55,15 @@ Describe your raw data files, including what the columns mean (and what units th
 
 ```{r data-input}
 library(readr) #loads the readr package
-filename <- 'testfile.csv' #make this a separate line, you can use any variable you want
-data <- read_csv(filename)
+filename <- 'testfile2.csv' #make this a separate line, you can use any variable you want
+
+#this loads whatever the file is into a dataframe called exp.data if it exists
+if(filename %in% dir()){
+  exp.data <- read_csv(filename)
+}
 ```
 
-These data can be found in `r getwd()` in a file named `r filename`.  This script was most recently updated on `r date()`.
+These data can be found in **`r getwd()`** in a file named **`r ifelse(filename %in% dir(), filename, "no file found")`**.  This script was most recently updated on **`r date()`**.
 
 # Analysis
 
