@@ -2,8 +2,8 @@
 
 Every year we like to come up with some of the papers we really enjoyed reading this year during our journal club.  Previous years are:
 
-* [Favorite papers of 2016](http://bridgeslab.sph.umich.edu/posts/our-favorite-papers-of-2015) 
-* [Favorite papers of 2017](http://bridgeslab.sph.umich.edu/posts/our-favorite-papers-of-2016)
+* [Favorite papers of 2015](http://bridgeslab.sph.umich.edu/posts/our-favorite-papers-of-2015) 
+* [Favorite papers of 2016](http://bridgeslab.sph.umich.edu/posts/our-favorite-papers-of-2016)
 
 Here are some of our favorites from this year:
 
