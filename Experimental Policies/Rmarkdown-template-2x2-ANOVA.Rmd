@@ -51,7 +51,7 @@ Link to the protocol used (permalink preferred) for the experiment and include a
 
 # Raw Data
 
-Describe your raw data files, including what the columns mean (and what units they are in).  To use this template to analyse data from an excel file, change the filename on line 58 and the sheetname on line 62.  Your data should have at least three columns, two of which indicate treatment groups (in this case Diet and Treatment) and one column with the measurement of interest (in this example FBG).  You should also update the names of the reference groups on line 65.
+Describe your raw data files, including what the columns mean (and what units they are in).
 
 ```{r data-input}
 library(readxl) #loads the readr package
@@ -94,9 +94,20 @@ ggplot(data=exp.data,
 ```
 
 
+## Boxplots
+
+```{r boxplot, fig.cap="Boxplot"}
+ggplot(exp.data,
+       aes(y=FBG, x=Diet, color=Treatment)))
+p + geom_boxplot(outlier.shape = NA) +
+  geom_point(position = position_jitterdodge()) +
+  labs(y="Relative Expression",x="Diet")
+
+```
+
 ## Barplots
 
-```{r barplot}
+```{r barplot, fig.cap="Barplot"}
 
 exp.summary <-
   exp.data %>%
@@ -105,7 +116,6 @@ exp.summary <-
             Error = se(FBG),
             N = length(FBG),
             Shapiro = shapiro.test(FBG)$p.value)
-
 
 ggplot(data=exp.summary,
        aes(y=Mean,
