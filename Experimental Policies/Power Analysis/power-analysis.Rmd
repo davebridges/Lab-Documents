@@ -4,14 +4,14 @@ title: "Power Analysis Sample"
 author: "Dave Bridges"
 date: "February 18, 2018"
 output:
-  pdf_document:
-    highlight: tango
-    keep_tex: yes
-    number_sections: no
-    toc: yes
   html_document:
     highlight: tango
     keep_md: yes
+    number_sections: no
+    toc: yes
+  pdf_document:
+    highlight: tango
+    keep_tex: yes
     number_sections: no
     toc: yes
 ---
@@ -87,10 +87,23 @@ The assumptions set in this analysis are:
 
 At a standard power of `r power` with a false positive rate of `r fpr` and a desired effect size of a `r effect.size` difference in percent fat mass we would need **`r required.animals`** animals in each group.
 
+## Calculate Detectable Effect Size
+
+```{r calculate-effect}
+required.animals.effect <- round(required.animals)
+effective.d <- pwr.t.test(power=power,
+                               n=required.animals.effect,
+                               sig.level=fpr,
+                               alternative="greater",
+                               type="two.sample")$d
+```
+
+Based on the design above we should expect to detect an effect size of `r effective.d` standard deviations with `r power` power, `r required.animals.effect` animals and a FPR of `r fpr`.
+
 ## Calculate Effective Power
 
 ```{r calculate-power}
-required.animals.power <- required.animals
+required.animals.power <- round(required.animals)
 effective.power <- pwr.t.test(d=effect.size.sd,
                                n=required.animals.power,
                                sig.level=fpr,

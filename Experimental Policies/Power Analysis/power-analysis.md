@@ -18,7 +18,7 @@ output:
 
 
 
-These data can be found in /Users/davebrid/Documents/GitHub/Lab-Documents/Experimental Policies/Power Analysis and this script was most recently run on Thu May 30 14:18:52 2019.
+These data can be found in /Users/davebrid/Documents/GitHub/Lab-Documents/Experimental Policies/Power Analysis and this script was most recently run on Thu May 30 14:23:27 2019.
 
 # Power Analysis
 
@@ -54,11 +54,25 @@ The assumptions set in this analysis are:
 
 At a standard power of 0.8 with a false positive rate of 0.05 and a desired effect size of a 5 difference in percent fat mass we would need **5.283** animals in each group.
 
+## Calculate Detectable Effect Size
+
+
+```r
+required.animals.effect <- round(required.animals)
+effective.d <- pwr.t.test(power=power,
+                               n=required.animals.effect,
+                               sig.level=fpr,
+                               alternative="greater",
+                               type="two.sample")$d
+```
+
+Based on the design above we should expect to detect an effect size of 1.725 standard deviations with 0.8 power, 5 animals and a FPR of 0.05.
+
 ## Calculate Effective Power
 
 
 ```r
-required.animals.power <- required.animals
+required.animals.power <- round(required.animals)
 effective.power <- pwr.t.test(d=effect.size.sd,
                                n=required.animals.power,
                                sig.level=fpr,
@@ -66,7 +80,7 @@ effective.power <- pwr.t.test(d=effect.size.sd,
                                type="two.sample")$power
 ```
 
-Based on the design above we have a 80% chance of seeing a difference of 1.667 with 5.283 animals and a FPR of 0.05.
+Based on the design above we have a 77.599% chance of seeing a difference of 1.667 with 5 animals and a FPR of 0.05.
 
 The plot below shows how likely we are to detect a difference (the power) as we vary the number of animals (x-axis) and the desired effect size.
 
