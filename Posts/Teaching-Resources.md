@@ -23,7 +23,7 @@ Some of the more popular videos so far are embedded below:
 	<h2>Macronutrient Nutrition Notes</h2>
 <p>The notes we use for NUTR630 are compiled in the form of a book below.  These notes were written by Dave Bridges with help from Olivia Anderson and are updated with input from the NUTR630 students:</p>
 
-<embed src="https://drive.google.com/file/d/11L7J-6X5wDudMmJQLrOoKCvRqNDPEOo1/view?usp=drive_link" width="500" height="375" 
+<embed src="https://drive.google.com/file/d/11L7J-6X5wDudMmJQLrOoKCvRqNDPEOo1/view?usp=sharing" width="500" height="375" 
  type="application/pdf">
 
 </section>
