@@ -18,4 +18,12 @@ Some of the more popular videos so far are embedded below:
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://www.youtube.com/playlist?list=PLmJmQ_yi846i-8x4Xn73izm_fSaryfTCU">Molecular Nutrition Videos</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="http://bridgeslab.sph.umich.edu/posts/nutrition-teaching-resources">Dave Bridges</a> are licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" class="col"></a></p>
 </div>
+
+<section id="textbook"
+The notes we use for NUTR630 are compiled in the form of a book below.  These notes were written by Dave Bridges with help from Olivia Anderson and are updated with input from the NUTR630 students:
+
+<embed src="https://drive.google.com/file/d/11L7J-6X5wDudMmJQLrOoKCvRqNDPEOo1/view?usp=drive_link" width="500" height="375" 
+ type="application/pdf">
+
+</section
 </div>
