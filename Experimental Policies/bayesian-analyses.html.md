@@ -35,9 +35,18 @@ $$
 \frac{P(E|H)}{P(E)} = 0.1/0.7 = 0.07
 $$
 
-0.07 is much less than one, so based on my rough estimate the study changed my opinion by $1/0.07=~14$ fold, a value which is known as the Bayes Factor.
+0.07 is much less than one, so based on my rough estimate the study changed my opinion by $1/0.07=~14$ fold.  Another way to think about this is to compare the **posterior** probabilities of two hypotheses or models ($BF=\frac{Pr(E|H_1)}{Pr(E|H_2)}$) a value which is known as the Bayes Factor.  This is because the $P(E)$ term is not expected to change depending on the hypothesis, because it is the overall probability of the observed data.
 
-## What is a Bayesian Analysis 
+### Interpreting a Bayesian Analysis
+
+Note that now we are reporting a poster probability ($P(H|E)$) or a bayesian factor.  In the former case we are saying that based on our prior probability and our baysian factor we report the probability that a hypothesis is true given the evidence (so closer to 1 is better).  In the latter, if we report a Bayes Factor we are reporting how much we expect that these data should modify any prior probability ($P(H)$).  This is an important distinction because a Bayes Factor does not make any claims about what the scientist initially thought about how likely a hypothesis was, so is more generalizabl.  Maybe I had some reason to think that the probability that protein intake max was 20-30g was 70% but another scientist thought it was closer to 90%, we would get different posterior probabilities but the same BF (0.07):
+
+$$P(H|E) = \frac{P(E|H)P(H)}{P(E)} = 0.07 \times 0.7=0.049$$
+$$P(H|E) = \frac{P(E|H)P(H)}{P(E)} = 0.07 \times 0.9=0.063$$
+
+## How to perform Bayesian Analyses
+
+There
 
 
 ::: {.cell}
@@ -146,8 +155,8 @@ Start sampling
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
 Chain 1: 
-Chain 1: Gradient evaluation took 7.4e-05 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.74 seconds.
+Chain 1: Gradient evaluation took 6.7e-05 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.67 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
@@ -164,15 +173,15 @@ Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 1.349 seconds (Warm-up)
-Chain 1:                1.004 seconds (Sampling)
-Chain 1:                2.353 seconds (Total)
+Chain 1:  Elapsed Time: 1.29 seconds (Warm-up)
+Chain 1:                0.941 seconds (Sampling)
+Chain 1:                2.231 seconds (Total)
 Chain 1: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
 Chain 2: 
-Chain 2: Gradient evaluation took 1.5e-05 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.15 seconds.
+Chain 2: Gradient evaluation took 1.9e-05 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.19 seconds.
 Chain 2: Adjust your expectations accordingly!
 Chain 2: 
 Chain 2: 
@@ -189,15 +198,15 @@ Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 2: 
-Chain 2:  Elapsed Time: 1.354 seconds (Warm-up)
-Chain 2:                0.96 seconds (Sampling)
-Chain 2:                2.314 seconds (Total)
+Chain 2:  Elapsed Time: 1.366 seconds (Warm-up)
+Chain 2:                0.965 seconds (Sampling)
+Chain 2:                2.331 seconds (Total)
 Chain 2: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
 Chain 3: 
-Chain 3: Gradient evaluation took 1.5e-05 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.15 seconds.
+Chain 3: Gradient evaluation took 2.1e-05 seconds
+Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.21 seconds.
 Chain 3: Adjust your expectations accordingly!
 Chain 3: 
 Chain 3: 
@@ -214,15 +223,15 @@ Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 3: 
-Chain 3:  Elapsed Time: 1.316 seconds (Warm-up)
-Chain 3:                1.037 seconds (Sampling)
-Chain 3:                2.353 seconds (Total)
+Chain 3:  Elapsed Time: 1.391 seconds (Warm-up)
+Chain 3:                0.969 seconds (Sampling)
+Chain 3:                2.36 seconds (Total)
 Chain 3: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
 Chain 4: 
-Chain 4: Gradient evaluation took 1.6e-05 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.16 seconds.
+Chain 4: Gradient evaluation took 1.8e-05 seconds
+Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.18 seconds.
 Chain 4: Adjust your expectations accordingly!
 Chain 4: 
 Chain 4: 
@@ -239,9 +248,9 @@ Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 4: 
-Chain 4:  Elapsed Time: 1.278 seconds (Warm-up)
-Chain 4:                0.956 seconds (Sampling)
-Chain 4:                2.234 seconds (Total)
+Chain 4:  Elapsed Time: 1.359 seconds (Warm-up)
+Chain 4:                1.255 seconds (Sampling)
+Chain 4:                2.614 seconds (Total)
 Chain 4: 
 ```
 
@@ -265,15 +274,15 @@ Formula: count ~ zAge + zBase * Trt + (1 | patient)
 Multilevel Hyperparameters:
 ~patient (Number of levels: 59) 
               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)     0.58      0.07     0.47     0.73 1.01      935     1759
+sd(Intercept)     0.58      0.07     0.46     0.73 1.00      964     1778
 
 Regression Coefficients:
            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept      1.77      0.12     1.53     2.00 1.00      693     1398
-zAge           0.09      0.08    -0.08     0.26 1.00      772     1228
-zBase          0.71      0.12     0.47     0.95 1.00      850     1271
-Trt1          -0.27      0.17    -0.59     0.07 1.00      669     1220
-zBase:Trt1     0.04      0.17    -0.28     0.37 1.00      879     1609
+Intercept      1.78      0.12     1.54     2.01 1.00      753     1367
+zAge           0.10      0.09    -0.07     0.27 1.01      623      949
+zBase          0.70      0.12     0.47     0.93 1.00      870     1478
+Trt1          -0.28      0.16    -0.60     0.03 1.00      842     1576
+zBase:Trt1     0.06      0.16    -0.26     0.39 1.00     1019     1437
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -405,7 +414,7 @@ hypothesis(fit, "High.AgeTRUE > 0")
 ```
 Hypothesis Tests for class b:
           Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob
-1 (High.AgeTRUE) > 0     0.03      1.61    -2.64     2.68       1.05      0.51
+1 (High.AgeTRUE) > 0        0      1.62    -2.72     2.61       1.01       0.5
   Star
 1     
 ---

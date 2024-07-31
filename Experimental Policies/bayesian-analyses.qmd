@@ -33,9 +33,18 @@ $$
 \frac{P(E|H)}{P(E)} = 0.1/0.7 = 0.07
 $$
 
-0.07 is much less than one, so based on my rough estimate the study changed my opinion by $1/0.07=~14$ fold.  Another way to think about this is to compare the **posterior** probabilities of two hypotheses or models ($$BF=\frac{Pr(E|H_1)}{Pr(E|H_2)}$$) a value which is known as the Bayes Factor.
+0.07 is much less than one, so based on my rough estimate the study changed my opinion by $1/0.07=~14$ fold.  Another way to think about this is to compare the **posterior** probabilities of two hypotheses or models ($BF=\frac{Pr(E|H_1)}{Pr(E|H_2)}$) a value which is known as the Bayes Factor.  This is because the $P(E)$ term is not expected to change depending on the hypothesis, because it is the overall probability of the observed data.
 
-## What is a Bayesian Analysis 
+### Interpreting a Bayesian Analysis
+
+Note that now we are reporting a poster probability ($P(H|E)$) or a bayesian factor.  In the former case we are saying that based on our prior probability and our baysian factor we report the probability that a hypothesis is true given the evidence (so closer to 1 is better).  In the latter, if we report a Bayes Factor we are reporting how much we expect that these data should modify any prior probability ($P(H)$).  This is an important distinction because a Bayes Factor does not make any claims about what the scientist initially thought about how likely a hypothesis was, so is more generalizabl.  Maybe I had some reason to think that the probability that protein intake max was 20-30g was 70% but another scientist thought it was closer to 90%, we would get different posterior probabilities but the same BF (0.07):
+
+$$P(H|E) = \frac{P(E|H)P(H)}{P(E)} = 0.07 \times 0.7=0.049$$
+$$P(H|E) = \frac{P(E|H)P(H)}{P(E)} = 0.07 \times 0.9=0.063$$
+
+## How to perform Bayesian Analyses
+
+There
 
 ```{r brms}
 library(brms)
