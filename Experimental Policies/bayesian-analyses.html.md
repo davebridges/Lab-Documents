@@ -7,6 +7,7 @@ theme: journal
 execute:
   keep-md: true
   message: false
+  warning: false
 editor: visual
 ---
 
@@ -64,41 +65,6 @@ There are several useful R packages to help with this, but i will focus on the [
 library(knitr)
 library(broom)
 library(dplyr)
-```
-
-::: {.cell-output .cell-output-stderr}
-
-```
-
-Attaching package: 'dplyr'
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-The following objects are masked from 'package:stats':
-
-    filter, lag
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union
-```
-
-
-:::
-
-```{.r .cell-code}
 standard.fit <- lm(Sepal.Length~Species, data=iris)
 standard.fit %>% 
   anova %>% 
@@ -151,50 +117,6 @@ Using brms the model specification is the same, though it takes a few seconds lo
 
 ```{.r .cell-code}
 library(brms)
-```
-
-::: {.cell-output .cell-output-stderr}
-
-```
-Loading required package: Rcpp
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-Loading 'brms' package (version 2.21.0). Useful instructions
-can be found by typing help('brms'). A more detailed introduction
-to the package is available through vignette('brms_overview').
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-
-Attaching package: 'brms'
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-The following object is masked from 'package:stats':
-
-    ar
-```
-
-
-:::
-
-```{.r .cell-code}
 brms.fit <- brm(Sepal.Length~Species, data=iris,
                 family = gaussian(),
                 prior = c(
@@ -202,162 +124,6 @@ brms.fit <- brm(Sepal.Length~Species, data=iris,
                   set_prior("normal(0, 5)", class = "b")),
                 sample_prior = TRUE) #required for hypothesis testing
 ```
-
-::: {.cell-output .cell-output-stderr}
-
-```
-Compiling Stan program...
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-Trying to compile a simple C file
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stdout}
-
-```
-Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
-using C compiler: ‘Apple clang version 15.0.0 (clang-1500.3.9.4)’
-using SDK: ‘MacOSX14.4.sdk’
-clang -arch x86_64 -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/x86_64/include    -fPIC  -falign-functions=64 -Wall -g -O2  -c foo.c -o foo.o
-In file included from <built-in>:1:
-In file included from /Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
-In file included from /Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppEigen/include/Eigen/Dense:1:
-In file included from /Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppEigen/include/Eigen/Core:19:
-/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
-#include <cmath>
-         ^~~~~~~
-1 error generated.
-make: *** [foo.o] Error 1
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-Start sampling
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stdout}
-
-```
-
-SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
-Chain 1: 
-Chain 1: Gradient evaluation took 2.9e-05 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.29 seconds.
-Chain 1: Adjust your expectations accordingly!
-Chain 1: 
-Chain 1: 
-Chain 1: Iteration:    1 / 2000 [  0%]  (Warmup)
-Chain 1: Iteration:  200 / 2000 [ 10%]  (Warmup)
-Chain 1: Iteration:  400 / 2000 [ 20%]  (Warmup)
-Chain 1: Iteration:  600 / 2000 [ 30%]  (Warmup)
-Chain 1: Iteration:  800 / 2000 [ 40%]  (Warmup)
-Chain 1: Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Chain 1: Iteration: 1001 / 2000 [ 50%]  (Sampling)
-Chain 1: Iteration: 1200 / 2000 [ 60%]  (Sampling)
-Chain 1: Iteration: 1400 / 2000 [ 70%]  (Sampling)
-Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
-Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
-Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
-Chain 1: 
-Chain 1:  Elapsed Time: 0.019 seconds (Warm-up)
-Chain 1:                0.016 seconds (Sampling)
-Chain 1:                0.035 seconds (Total)
-Chain 1: 
-
-SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
-Chain 2: 
-Chain 2: Gradient evaluation took 3e-06 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.03 seconds.
-Chain 2: Adjust your expectations accordingly!
-Chain 2: 
-Chain 2: 
-Chain 2: Iteration:    1 / 2000 [  0%]  (Warmup)
-Chain 2: Iteration:  200 / 2000 [ 10%]  (Warmup)
-Chain 2: Iteration:  400 / 2000 [ 20%]  (Warmup)
-Chain 2: Iteration:  600 / 2000 [ 30%]  (Warmup)
-Chain 2: Iteration:  800 / 2000 [ 40%]  (Warmup)
-Chain 2: Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Chain 2: Iteration: 1001 / 2000 [ 50%]  (Sampling)
-Chain 2: Iteration: 1200 / 2000 [ 60%]  (Sampling)
-Chain 2: Iteration: 1400 / 2000 [ 70%]  (Sampling)
-Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
-Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
-Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
-Chain 2: 
-Chain 2:  Elapsed Time: 0.018 seconds (Warm-up)
-Chain 2:                0.016 seconds (Sampling)
-Chain 2:                0.034 seconds (Total)
-Chain 2: 
-
-SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
-Chain 3: 
-Chain 3: Gradient evaluation took 4e-06 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.04 seconds.
-Chain 3: Adjust your expectations accordingly!
-Chain 3: 
-Chain 3: 
-Chain 3: Iteration:    1 / 2000 [  0%]  (Warmup)
-Chain 3: Iteration:  200 / 2000 [ 10%]  (Warmup)
-Chain 3: Iteration:  400 / 2000 [ 20%]  (Warmup)
-Chain 3: Iteration:  600 / 2000 [ 30%]  (Warmup)
-Chain 3: Iteration:  800 / 2000 [ 40%]  (Warmup)
-Chain 3: Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Chain 3: Iteration: 1001 / 2000 [ 50%]  (Sampling)
-Chain 3: Iteration: 1200 / 2000 [ 60%]  (Sampling)
-Chain 3: Iteration: 1400 / 2000 [ 70%]  (Sampling)
-Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
-Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
-Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
-Chain 3: 
-Chain 3:  Elapsed Time: 0.017 seconds (Warm-up)
-Chain 3:                0.017 seconds (Sampling)
-Chain 3:                0.034 seconds (Total)
-Chain 3: 
-
-SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
-Chain 4: 
-Chain 4: Gradient evaluation took 3e-06 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.03 seconds.
-Chain 4: Adjust your expectations accordingly!
-Chain 4: 
-Chain 4: 
-Chain 4: Iteration:    1 / 2000 [  0%]  (Warmup)
-Chain 4: Iteration:  200 / 2000 [ 10%]  (Warmup)
-Chain 4: Iteration:  400 / 2000 [ 20%]  (Warmup)
-Chain 4: Iteration:  600 / 2000 [ 30%]  (Warmup)
-Chain 4: Iteration:  800 / 2000 [ 40%]  (Warmup)
-Chain 4: Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Chain 4: Iteration: 1001 / 2000 [ 50%]  (Sampling)
-Chain 4: Iteration: 1200 / 2000 [ 60%]  (Sampling)
-Chain 4: Iteration: 1400 / 2000 [ 70%]  (Sampling)
-Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
-Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
-Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
-Chain 4: 
-Chain 4:  Elapsed Time: 0.018 seconds (Warm-up)
-Chain 4:                0.015 seconds (Sampling)
-Chain 4:                0.033 seconds (Total)
-Chain 4: 
-```
-
-
-:::
 :::
 
 
@@ -387,13 +153,13 @@ Formula: Sepal.Length ~ Species
 
 Regression Coefficients:
                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept             5.01      0.08     4.86     5.16 1.00     3475     2966
-Speciesversicolor     0.93      0.11     0.72     1.14 1.00     3713     2942
-Speciesvirginica      1.58      0.10     1.38     1.79 1.00     3600     2888
+Intercept             5.01      0.07     4.87     5.16 1.00     3493     2917
+Speciesversicolor     0.93      0.11     0.72     1.13 1.00     3503     3145
+Speciesvirginica      1.58      0.11     1.37     1.78 1.00     3719     2915
 
 Further Distributional Parameters:
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma     0.52      0.03     0.46     0.58 1.00     3523     2769
+sigma     0.52      0.03     0.46     0.58 1.00     3858     3193
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -406,15 +172,6 @@ scale reduction factor on split chains (at convergence, Rhat = 1).
 ```{.r .cell-code}
 pp_check(brms.fit) #checks that posterior probabilities converge
 ```
-
-::: {.cell-output .cell-output-stderr}
-
-```
-Using 10 posterior draws for ppc type 'dens_overlay' by default.
-```
-
-
-:::
 
 ::: {.cell-output-display}
 ![](bayesian-analyses_files/figure-html/brms-analysis-1.png){width=672}
@@ -448,7 +205,7 @@ hypothesis(brms.fit, "Speciesvirginica > 0")
 ```
 Hypothesis Tests for class b:
               Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio
-1 (Speciesvirginica) > 0     1.58       0.1     1.41     1.75        Inf
+1 (Speciesvirginica) > 0     1.58      0.11      1.4     1.75        Inf
   Post.Prob Star
 1         1    *
 ---
@@ -477,7 +234,7 @@ hypothesis(brms.fit, "Speciesvirginica > 1.5")
 ```
 Hypothesis Tests for class b:
                 Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio
-1 (Speciesvirginica... > 0     0.08       0.1    -0.09     0.25       3.56
+1 (Speciesvirginica... > 0     0.08      0.11     -0.1     0.25       3.51
   Post.Prob Star
 1      0.78     
 ---
@@ -518,91 +275,13 @@ ggplot(posterior_samples, aes(x = b_Speciesvirginica)) +
 
 ```{.r .cell-code}
 library(bayesplot)
-```
 
-::: {.cell-output .cell-output-stderr}
-
-```
-This is bayesplot version 1.11.1
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-- Online documentation and vignettes at mc-stan.org/bayesplot
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-- bayesplot theme set to bayesplot::theme_default()
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-   * Does _not_ affect other ggplot2 plots
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-   * See ?bayesplot_theme_set for details on theme setting
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-
-Attaching package: 'bayesplot'
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-The following object is masked from 'package:brms':
-
-    rhat
-```
-
-
-:::
-
-```{.r .cell-code}
 mcmc_areas(posterior_samples, pars = c("b_Speciesvirginica","b_Speciesversicolor"),
            prob = 0.95) +
   labs(title = "Difference Between Virginica or Versicolor and Setosa") +
   lims(x=c(-0.5,3)) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "red") 
 ```
-
-::: {.cell-output .cell-output-stderr}
-
-```
-Scale for x is already present.
-Adding another scale for x, which will replace the existing scale.
-```
-
-
-:::
 
 ::: {.cell-output-display}
 ![](bayesian-analyses_files/figure-html/brms-results-2.png){width=672}
@@ -656,162 +335,9 @@ model <- brm(
   chains = 4, warmup = 1000, iter = 4000, seed = 123
 )
 ```
-
-::: {.cell-output .cell-output-stderr}
-
-```
-Compiling Stan program...
-```
-
-
 :::
 
-::: {.cell-output .cell-output-stderr}
-
-```
-Trying to compile a simple C file
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stdout}
-
-```
-Running /Library/Frameworks/R.framework/Resources/bin/R CMD SHLIB foo.c
-using C compiler: ‘Apple clang version 15.0.0 (clang-1500.3.9.4)’
-using SDK: ‘MacOSX14.4.sdk’
-clang -arch x86_64 -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/Rcpp/include/"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppEigen/include/"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppEigen/include/unsupported"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/BH/include" -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/StanHeaders/include/src/"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/StanHeaders/include/"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppParallel/include/"  -I"/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/R/x86_64/include    -fPIC  -falign-functions=64 -Wall -g -O2  -c foo.c -o foo.o
-In file included from <built-in>:1:
-In file included from /Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
-In file included from /Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppEigen/include/Eigen/Dense:1:
-In file included from /Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppEigen/include/Eigen/Core:19:
-/Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
-#include <cmath>
-         ^~~~~~~
-1 error generated.
-make: *** [foo.o] Error 1
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-Start sampling
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stdout}
-
-```
-
-SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
-Chain 1: 
-Chain 1: Gradient evaluation took 3.2e-05 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.32 seconds.
-Chain 1: Adjust your expectations accordingly!
-Chain 1: 
-Chain 1: 
-Chain 1: Iteration:    1 / 4000 [  0%]  (Warmup)
-Chain 1: Iteration:  400 / 4000 [ 10%]  (Warmup)
-Chain 1: Iteration:  800 / 4000 [ 20%]  (Warmup)
-Chain 1: Iteration: 1001 / 4000 [ 25%]  (Sampling)
-Chain 1: Iteration: 1400 / 4000 [ 35%]  (Sampling)
-Chain 1: Iteration: 1800 / 4000 [ 45%]  (Sampling)
-Chain 1: Iteration: 2200 / 4000 [ 55%]  (Sampling)
-Chain 1: Iteration: 2600 / 4000 [ 65%]  (Sampling)
-Chain 1: Iteration: 3000 / 4000 [ 75%]  (Sampling)
-Chain 1: Iteration: 3400 / 4000 [ 85%]  (Sampling)
-Chain 1: Iteration: 3800 / 4000 [ 95%]  (Sampling)
-Chain 1: Iteration: 4000 / 4000 [100%]  (Sampling)
-Chain 1: 
-Chain 1:  Elapsed Time: 0.011 seconds (Warm-up)
-Chain 1:                0.034 seconds (Sampling)
-Chain 1:                0.045 seconds (Total)
-Chain 1: 
-
-SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
-Chain 2: 
-Chain 2: Gradient evaluation took 3e-06 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.03 seconds.
-Chain 2: Adjust your expectations accordingly!
-Chain 2: 
-Chain 2: 
-Chain 2: Iteration:    1 / 4000 [  0%]  (Warmup)
-Chain 2: Iteration:  400 / 4000 [ 10%]  (Warmup)
-Chain 2: Iteration:  800 / 4000 [ 20%]  (Warmup)
-Chain 2: Iteration: 1001 / 4000 [ 25%]  (Sampling)
-Chain 2: Iteration: 1400 / 4000 [ 35%]  (Sampling)
-Chain 2: Iteration: 1800 / 4000 [ 45%]  (Sampling)
-Chain 2: Iteration: 2200 / 4000 [ 55%]  (Sampling)
-Chain 2: Iteration: 2600 / 4000 [ 65%]  (Sampling)
-Chain 2: Iteration: 3000 / 4000 [ 75%]  (Sampling)
-Chain 2: Iteration: 3400 / 4000 [ 85%]  (Sampling)
-Chain 2: Iteration: 3800 / 4000 [ 95%]  (Sampling)
-Chain 2: Iteration: 4000 / 4000 [100%]  (Sampling)
-Chain 2: 
-Chain 2:  Elapsed Time: 0.011 seconds (Warm-up)
-Chain 2:                0.035 seconds (Sampling)
-Chain 2:                0.046 seconds (Total)
-Chain 2: 
-
-SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
-Chain 3: 
-Chain 3: Gradient evaluation took 7e-06 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
-Chain 3: Adjust your expectations accordingly!
-Chain 3: 
-Chain 3: 
-Chain 3: Iteration:    1 / 4000 [  0%]  (Warmup)
-Chain 3: Iteration:  400 / 4000 [ 10%]  (Warmup)
-Chain 3: Iteration:  800 / 4000 [ 20%]  (Warmup)
-Chain 3: Iteration: 1001 / 4000 [ 25%]  (Sampling)
-Chain 3: Iteration: 1400 / 4000 [ 35%]  (Sampling)
-Chain 3: Iteration: 1800 / 4000 [ 45%]  (Sampling)
-Chain 3: Iteration: 2200 / 4000 [ 55%]  (Sampling)
-Chain 3: Iteration: 2600 / 4000 [ 65%]  (Sampling)
-Chain 3: Iteration: 3000 / 4000 [ 75%]  (Sampling)
-Chain 3: Iteration: 3400 / 4000 [ 85%]  (Sampling)
-Chain 3: Iteration: 3800 / 4000 [ 95%]  (Sampling)
-Chain 3: Iteration: 4000 / 4000 [100%]  (Sampling)
-Chain 3: 
-Chain 3:  Elapsed Time: 0.011 seconds (Warm-up)
-Chain 3:                0.037 seconds (Sampling)
-Chain 3:                0.048 seconds (Total)
-Chain 3: 
-
-SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
-Chain 4: 
-Chain 4: Gradient evaluation took 2e-06 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.02 seconds.
-Chain 4: Adjust your expectations accordingly!
-Chain 4: 
-Chain 4: 
-Chain 4: Iteration:    1 / 4000 [  0%]  (Warmup)
-Chain 4: Iteration:  400 / 4000 [ 10%]  (Warmup)
-Chain 4: Iteration:  800 / 4000 [ 20%]  (Warmup)
-Chain 4: Iteration: 1001 / 4000 [ 25%]  (Sampling)
-Chain 4: Iteration: 1400 / 4000 [ 35%]  (Sampling)
-Chain 4: Iteration: 1800 / 4000 [ 45%]  (Sampling)
-Chain 4: Iteration: 2200 / 4000 [ 55%]  (Sampling)
-Chain 4: Iteration: 2600 / 4000 [ 65%]  (Sampling)
-Chain 4: Iteration: 3000 / 4000 [ 75%]  (Sampling)
-Chain 4: Iteration: 3400 / 4000 [ 85%]  (Sampling)
-Chain 4: Iteration: 3800 / 4000 [ 95%]  (Sampling)
-Chain 4: Iteration: 4000 / 4000 [100%]  (Sampling)
-Chain 4: 
-Chain 4:  Elapsed Time: 0.011 seconds (Warm-up)
-Chain 4:                0.032 seconds (Sampling)
-Chain 4:                0.043 seconds (Total)
-Chain 4: 
-```
-
-
-:::
+::: {.cell}
 
 ```{.r .cell-code}
 # Summarize the model
@@ -842,6 +368,15 @@ scale reduction factor on split chains (at convergence, Rhat = 1).
 :::
 
 ```{.r .cell-code}
+# plot
+plot(model)
+```
+
+::: {.cell-output-display}
+![](bayesian-analyses_files/figure-html/chisq-test-analysis-1.png){width=672}
+:::
+
+```{.r .cell-code}
 hypothesis(model,"groupgroup2<groupgroup1")
 ```
 
@@ -868,17 +403,8 @@ Posterior probabilities of point hypotheses assume equal prior probabilities.
 pp_check(model)
 ```
 
-::: {.cell-output .cell-output-stderr}
-
-```
-Using 10 posterior draws for ppc type 'dens_overlay' by default.
-```
-
-
-:::
-
 ::: {.cell-output-display}
-![](bayesian-analyses_files/figure-html/brms-chisq-1.png){width=672}
+![](bayesian-analyses_files/figure-html/chisq-test-analysis-2.png){width=672}
 :::
 :::
 

@@ -7,6 +7,7 @@ theme: journal
 execute:
   keep-md: true
   message: false
+  warning: false
 editor: visual
 ---
 
@@ -76,6 +77,7 @@ According to this model there is a significant association between species and s
 Using brms the model specification is the same, though it takes a few seconds longer to compute.
 
 ```{r brm}
+#| output: false
 library(brms)
 brms.fit <- brm(Sepal.Length~Species, data=iris,
                 family = gaussian(),
@@ -155,6 +157,7 @@ chisq.test(data[c(2,3)])
 As you can see by $\chi^2$ test this is a barely significant enrichment of success in group 1
 
 ```{r brms-chisq}
+#| output: false
 # Fit the model
 model <- brm(
   bf(success | trials(total) ~ 0 + group),  # 0 + group removes the intercept
@@ -163,9 +166,14 @@ model <- brm(
   prior = c(prior(beta(1,1), class = b, lb = 0, ub = 1)), # uniform would be beta(1,1), perplexity suggested 2,6.  This sets the beta parameter (b, the fixed parameters) to be set with a lower bound of zero and an upper bound of 1
   chains = 4, warmup = 1000, iter = 4000, seed = 123
 )
+```
 
+```{r chisq-test-analysis}
 # Summarize the model
 summary(model)
+
+# plot
+plot(model)
 
 hypothesis(model,"groupgroup2<groupgroup1")
 
