@@ -153,13 +153,13 @@ Formula: Sepal.Length ~ Species
 
 Regression Coefficients:
                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept             5.01      0.07     4.87     5.16 1.00     3493     2917
-Speciesversicolor     0.93      0.11     0.72     1.13 1.00     3503     3145
-Speciesvirginica      1.58      0.11     1.37     1.78 1.00     3719     2915
+Intercept             5.01      0.07     4.87     5.15 1.00     3482     2708
+Speciesversicolor     0.93      0.10     0.73     1.13 1.00     3518     2975
+Speciesvirginica      1.58      0.10     1.38     1.78 1.00     3178     3003
 
 Further Distributional Parameters:
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma     0.52      0.03     0.46     0.58 1.00     3858     3193
+sigma     0.52      0.03     0.46     0.58 1.00     4077     2944
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -205,7 +205,7 @@ hypothesis(brms.fit, "Speciesvirginica > 0")
 ```
 Hypothesis Tests for class b:
               Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio
-1 (Speciesvirginica) > 0     1.58      0.11      1.4     1.75        Inf
+1 (Speciesvirginica) > 0     1.58       0.1     1.41     1.75        Inf
   Post.Prob Star
 1         1    *
 ---
@@ -234,7 +234,7 @@ hypothesis(brms.fit, "Speciesvirginica > 1.5")
 ```
 Hypothesis Tests for class b:
                 Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio
-1 (Speciesvirginica... > 0     0.08      0.11     -0.1     0.25       3.51
+1 (Speciesvirginica... > 0     0.08       0.1    -0.09     0.25       3.61
   Post.Prob Star
 1      0.78     
 ---
@@ -336,6 +336,13 @@ model <- brm(
 )
 ```
 :::
+
+
+Note that in this case the priors will be defined as:
+
+* a uniform beta distribution, this is the conjugate prior for the p-parameter in the binomial distribution (see [this link](https://towardsdatascience.com/beta-distribution-intuition-examples-and-derivation-cf00f4db57af))
+* setting the lower and upper bound of b to be zero and 1
+
 
 ::: {.cell}
 
