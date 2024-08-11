@@ -1,17 +1,13 @@
 ---
 title: "General Statistics"
 author: "Dave Bridges"
-date: "May 9, 2014"
+date: "May 9, 2014, Last Updated 2024-08-11"
 output:
-  pdf_document:
-    highlight: tango
-    keep_tex: yes
-    number_sections: no
-    toc: yes
   html_document:
     highlight: tango
     keep_md: yes
     number_sections: no
+    toc_float: true
     toc: yes
 ---
 
