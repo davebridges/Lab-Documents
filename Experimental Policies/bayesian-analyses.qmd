@@ -1,0 +1,204 @@
+---
+title: "Bayesian Statistical Approaches"
+author: "Dave Bridges"
+date: "2024-07-31"
+format: html
+theme: journal
+execute:
+  keep-md: true
+  message: false
+  warning: false
+editor: source
+---
+
+While we most often use classical frequentist statistical approaches, the norm in the molecular physiology field, I have been thinking a lot about Bayesian approaches, especially from a public health and nutrition perspective. In these fields the data tend to be less clear and I find myself updating my opinions often based on new data.
+
+### How Much Protein is Optimal Post-Exercise
+
+One example is the question of how much protein is optimal post-resistance training workout. I had been teaching for years that the max was 20-30g and beyond that there wsa no advantage. This was based on several feeding experiments with whey protein looking at muscle protein synthesis as the endpoint. However in December a provocative paper came out showing that up to 100g could be absorbed and stored and that the true maximum may be higher. There are several important differences in this study including a more natural protein source (milk proteins mostly a combination of whey and casein, compared with casein alone) and much more rigorous endpoints by the use of stable isotopes. I am a cynical person by nature, but this paper made me change my opinion greatly. In other words by prior hypothesis (max protein uptake is 20-30g) was updated by new data (this new paper) and my new posterior opinion suggests the levels might be higher. Fundamentally this happens to me a lot when newer (or better) data updates our understanding of the world and we update the likliehood of something being true. This is an example of inferential Bayesian reasoning. The math behind this is this (from https://en.wikipedia.org/wiki/Bayesian_inference):
+
+-   $P(H|E)$ is the probability of hypothesis A given that data B was obtained. Also known as the *posterior probability*.
+-   $P(E|H)$ is the probability of observing E given this hypothesis
+-   $P(H)$ is the probability of the hypothesis before hte data (the *prior probability*)
+-   $P(E)$ is the probability of the evidence, or the *marginal liklihood*
+
+Together these are connected by Bayes' rule
+
+$$P(H|E) = \frac{P(E|H)P(H)}{P(E)} $$ In other words my prior hypothesis (max protein post workout is 20-30g; $P(H)$ was updated by this new data (represented by $\frac{P(E|H)}{P(E)}$) to give me an updated posterior probability of that hypothesis being true given this evidence ($P(H|E)$). Roughly I would say i had about 70% certainty that 20-30g was the maximum before the study but now only about \~10% certainty after reading that study, so re-arranging we would get:
+
+$$
+0.1 = \frac{P(E|H)}{P(E)} \times 0.7
+$$ $$
+\frac{P(E|H)}{P(E)} = 0.1/0.7 = 0.07
+$$
+
+0.07 is much less than one, so based on my rough estimate the study changed my opinion by $1/0.07=~14$ fold. Another way to think about this is to compare the **posterior** probabilities of two hypotheses or models ($BF=\frac{Pr(E|H_1)}{Pr(E|H_2)}$) a value which is known as the Bayes Factor. The $P(E)$ term is not expected to change depending on the hypothesis, because it is the overall probability of the observed data.
+
+### Interpreting a Bayesian Analysis
+
+After this kind of analysis, there are two things we coould report. A *poster probability* ($P(H|E)$; or its distribution) or a Bayes Factor. In one case we are saying that based on our prior probability and our baysian factor we report the posterior probability that a hypothesis is true given the evidence. This means that we use both the Bayes Factor and our prior probability (which could vary among investigators). If we report a Bayes Factor we are reporting how much we expect that these data should modify any prior probability ($P(H)$). This is an important distinction because a Bayes Factor does not make any claims about what the scientist initially thought about how likely a hypothesis was, so is more generalizable. Maybe I had some reason to think that the probability that protein intake max was 20-30g was 70% but another scientist thought it was closer to 90%, we would get different posterior probabilities but the same BF (0.07):
+
+$$P(H|E) = \frac{P(E|H)P(H)}{P(E)} = 0.07 \times 0.7=0.049$$ $$P(H|E) = \frac{P(E|H)P(H)}{P(E)} = 0.07 \times 0.9=0.063$$ There is no p-value in either case. Here we are reporting either a Bayes Factor or a posterior probability. For standardization, Bayes Factors are grouped by Lee and Wagenmakers (https://doi.org/10.1017/CBO9781139087759) as:
+
+-   \<1-3 anecdoctal or barely worth mentioning
+
+-   3-10 moderate evidence
+
+-   10-30 strong evidence
+
+-   30-100 extremely strong evidence
+
+-   
+
+    > 100 extreme evidence
+
+## How to perform Bayesian Analyses
+
+There are several useful R packages to help with this, but i will focus on the [brms package](https://paul-buerkner.github.io/brms/) by Paul-Christian Bürkner. For comparason first lets look at a conventional analysis using the Iris dataset.
+
+```{r iris-standard}
+library(knitr)
+library(broom)
+library(dplyr)
+standard.fit <- lm(Sepal.Length~Species, data=iris)
+standard.fit %>% 
+  anova %>% 
+  kable(caption="linear model for sepal length vs species",
+        digits=c(2,2,2,2,99))
+
+standard.fit %>% 
+  tidy %>% 
+  kable(caption="linear model for sepal length vs species",
+        digits=c(2,2,2,2,99))
+```
+
+According to this model there is a significant association between species and sepal length, with veriscolor being slightly smaller and virginica being larger than the reference (setosa). Both of these are significiant differences.
+
+Using brms the model specification is the same, though it takes a few seconds longer to compute.
+
+```{r brm}
+#| output: false
+library(brms)
+brms.fit <- brm(Sepal.Length~Species, data=iris,
+                family = gaussian(),
+                sample_prior = TRUE) #required for hypothesis testing
+```
+
+Lets walk through this.  First the model call looks similar to before.  We expect the residual errors to be normally distributed so used a gaussian distribution (which is the same thing for this package).  The main difference is that we should set our priors probabilities.
+
+### Setting Prior Probabilities for use in BRM
+
+We may not have noticed this but in the call above we just used the default priors.
+
+```{r default-priors}
+prior_summary(brms.fit) %>% kable(caption="Default priors for a brms model of Sepal Length")
+```
+
+This means that for the beta coefficients (b) teh priors were set as flat priors.  The intercept wsa set as Student's *t* distribution (three degrees of freedom, location 5.8, scale $\sigma$ of 2.5) and the sigma (error) was set to a similar distributiob but centered around zero.  Where did these defaults come from?  Well the mean sepal lenghti is `r mean(iris$Sepal.Length)` which is why the intercept was set to that, this seems reasonable.  But what about the distributions chosen
+
+* **Flat Prior** means the b coefficient is equally likely to be any value, this is a non-informative prior.
+* **Students' t** distributions have heavier tails than normal/gaussian distributions so allow for outliers more easily to be modelled.  Again,  for the Interecept it is centered around the mean for the data.  
+
+This is the default, and presumes you know little about your data, of course since this is a Bayesian approach you could provide more or less information about the model parameters based on your prior knowledge.
+
+There are three methods by which you could thinkg about your prior distributions.  You could have *weakly informative priors* as we have above, or *strongly informative priors* if you know a lot about the system.  
+
+Lets say we have some information about Iris because we have been working on this for a while, but havent investigated the effect of species.  We could therefore set our priors as follows:
+
+* Intercept is a value of `r mean(iris$Sepal.Length)` with a sd of `r sd(iris$Sepal.Length)`, fit to a normal distribution
+* Beta coefficients are set to a value of zero with a sd of 0.5, also fit to a normal distribution.
+* Set the residual standard deviation (sigma) as mean zero, three degrees of freedom with a sd of 0.5 set to a Student's *t* distribution.
+
+Both of these are somewhat non-informative priors and presume we something but not a lot about the data.  We could also set lower or upper bounds for these distributions if needed (lb and ub) but we will skip that for now.
+
+```{r set-priors}
+sepal_length_mean <- mean(iris$Sepal.Length)
+sepal_length_sd <- sd(iris$Sepal.Length)
+new.priors <- c(
+    # Prior for the Intercept
+    set_prior(paste0("normal(", sepal_length_mean, ", ", sepal_length_sd, ")"), class = "Intercept"),
+    # Prior for all beta coefficients
+    set_prior("normal(0, 0.5)", class = "b"),
+    # Prior for the residual standard deviation (sigma)
+    set_prior("student_t(3, 0, 2.5)", class = "sigma")
+)
+```
+
+Now lets re-run the analysis
+
+```{r brms-priors}
+#| output: false
+brms.fit.new.priors <- brm(Sepal.Length~Species, data=iris,
+                family = gaussian(),
+                prior = new.priors,
+                sample_prior = TRUE) 
+```
+
+#### Comparing the Results
+
+```{r brms-analysis}
+fixef(brms.fit)  %>% kable(caption="Fixed effects from default priors")
+fixef(brms.fit.new.priors) %>% kable(caption="Fixed effects from new priors")
+```
+
+You will notice that they give us similar (but not identical) regression coefficients, demonstrating that while the choice of priors does affect the results, the analysis is still relatively robust.  This is represented graphically:
+
+```{r plot-default-priors}
+plot(brms.fit)
+```
+
+```{r plot-new-priors}
+plot(brms.fit.new.priors)
+```
+
+No where in these results are no p-values, so how do we get a sense of confidence around a parameter?
+
+### Hypothesis Testing with BRMS
+
+How do we get Bayes Factors and posterior probabilities. Lets say we want to test the hypothesis that `Speciesvirginica` was greater than the reference (setosa), that would mean the estimate would have to be greater than zero for this term
+
+```{r hypothesis}
+hypothesis(brms.fit.new.priors, "Speciesvirginica > 0") 
+```
+
+This tabel shows the estimate, error and confidence intervals. The Evid.Ratio (infinity) is the Bayes Factor and the Post.Prob is the posterior probability. This suggests very high (extreme) confidence in that hypothesis being true. But now lets say we only care if virginica is 1.5 units greater than setosa. Those results look like this:
+
+```{r hypothesis-2}
+hypothesis(brms.fit.new.priors, "Speciesvirginica > 1.5") 
+```
+
+As you can see while the estimate is still positive (1.58-1.5=0.08), the Bayes Factor is less confident (3.8, so moderate confidence), and the posterior probability is 79%.
+
+Lets visualize this a bit further:
+
+```{r brms-results}
+posterior_samples <- as_draws_df(brms.fit) #sample from the posteriors
+posterior_samples.new.priors <- as_draws_df(brms.fit.new.priors) #sample from the posteriors
+library(ggplot2)
+
+ggplot(posterior_samples, aes(x = b_Speciesvirginica)) +
+  geom_density(fill="blue") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  labs(title = "Posterior Distributions",
+   subtitle="Difference Between Virginica and Setosa",
+       x = "Difference between groups",
+       y = "Density") 
+
+library(bayesplot)
+
+mcmc_areas(posterior_samples, pars = c("b_Speciesvirginica","b_Speciesversicolor"),
+           prob = 0.95) +
+  labs(title = "Difference Between Virginica or Versicolor and Setosa") +
+  lims(x=c(-0.5,3)) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") 
+```
+Hopefully this gives you a sense on how a Bayesian approach can be applied in general.  Next we will look at how to do some standard analyses commonly done with null hypothesis significance testing using brms.
+
+Note this script used some examples generated by [perplexity.ai](https://www.perplexity.ai/) and then modified further
+
+# Session Info
+
+```{r sessionInfo}
+sessionInfo()
+```
+
