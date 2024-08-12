@@ -8,7 +8,7 @@ execute:
   keep-md: true
   message: false
   warning: false
-editor: visual
+editor: source
 ---
 
 While we most often use classical frequentist statistical approaches, the norm in the molecular physiology field, I have been thinking a lot about Bayesian approaches, especially from a public health and nutrition perspective. In these fields the data tend to be less clear and I find myself updating my opinions often based on new data.
@@ -81,39 +81,90 @@ Using brms the model specification is the same, though it takes a few seconds lo
 library(brms)
 brms.fit <- brm(Sepal.Length~Species, data=iris,
                 family = gaussian(),
-                prior = c(
-                  set_prior("normal(0, 10)", class = "Intercept"),
-                  set_prior("normal(0, 5)", class = "b")),
                 sample_prior = TRUE) #required for hypothesis testing
 ```
 
-Lets walk through this.  First the model call looks similar to before.  We expect the errors to be normally distributed so used a gaussian distribution.  We set our priors as follows:
+Lets walk through this.  First the model call looks similar to before.  We expect the residual errors to be normally distributed so used a gaussian distribution (which is the same thing for this package).  The main difference is that we should set our priors probabilities.
 
-* Intercept is a value of zero with a sd of 10, fit to a normal distribution
-* Beta coefficients are set to a value of zero with a sd of 5.
+### Setting Prior Probabilities for use in BRM
 
-Both of these are somewhat non-informative priors and presume we know very little about the data.  We could for example use `mean(iris$Sepal.Length)` and `sd(iris$Sepal.Length)` as Intercept priors presuming we know something about the shape of the data but not the effects of the Species.
+We may not have noticed this but in the call above we just used the default priors.
+
+```{r default-priors}
+prior_summary(brms.fit) %>% kable(caption="Default priors for a brms model of Sepal Length")
+```
+
+This means that for the beta coefficients (b) teh priors were set as flat priors.  The intercept wsa set as Student's *t* distribution (three degrees of freedom, location 5.8, scale $\sigma$ of 2.5) and the sigma (error) was set to a similar distributiob but centered around zero.  Where did these defaults come from?  Well the mean sepal lenghti is `r mean(iris$Sepal.Length)` which is why the intercept was set to that, this seems reasonable.  But what about the distributions chosen
+
+* **Flat Prior** means the b coefficient is equally likely to be any value, this is a non-informative prior.
+* **Students' t** distributions have heavier tails than normal/gaussian distributions so allow for outliers more easily to be modelled.  Again,  for the Interecept it is centered around the mean for the data.  
+
+This is the default, and presumes you know little about your data, of course since this is a Bayesian approach you could provide more or less information about the model parameters based on your prior knowledge.
+
+There are three methods by which you could thinkg about your prior distributions.  You could have *weakly informative priors* as we have above, or *strongly informative priors* if you know a lot about the system.  
+
+Lets say we have some information about Iris because we have been working on this for a while, but havent investigated the effect of species.  We could therefore set our priors as follows:
+
+* Intercept is a value of `r mean(iris$Sepal.Length)` with a sd of `r sd(iris$Sepal.Length)`, fit to a normal distribution
+* Beta coefficients are set to a value of zero with a sd of 0.5, also fit to a normal distribution.
+* Set the residual standard deviation (sigma) as mean zero, three degrees of freedom with a sd of 0.5 set to a Student's *t* distribution.
+
+Both of these are somewhat non-informative priors and presume we something but not a lot about the data.  We could also set lower or upper bounds for these distributions if needed (lb and ub) but we will skip that for now.
+
+```{r set-priors}
+sepal_length_mean <- mean(iris$Sepal.Length)
+sepal_length_sd <- sd(iris$Sepal.Length)
+new.priors <- c(
+    # Prior for the Intercept
+    set_prior(paste0("normal(", sepal_length_mean, ", ", sepal_length_sd, ")"), class = "Intercept"),
+    # Prior for all beta coefficients
+    set_prior("normal(0, 0.5)", class = "b"),
+    # Prior for the residual standard deviation (sigma)
+    set_prior("student_t(3, 0, 2.5)", class = "sigma")
+)
+```
+
+Now lets re-run the analysis
+
+```{r brms-priors}
+#| output: false
+brms.fit.new.priors <- brm(Sepal.Length~Species, data=iris,
+                family = gaussian(),
+                prior = new.priors,
+                sample_prior = TRUE) 
+```
+
+#### Comparing the Results
 
 ```{r brms-analysis}
-summary(brms.fit) 
-pp_check(brms.fit) #checks that posterior probabilities converge
+fixef(brms.fit)  %>% kable(caption="Fixed effects from default priors")
+fixef(brms.fit.new.priors) %>% kable(caption="Fixed effects from new priors")
+```
+
+You will notice that they give us similar (but not identical) regression coefficients, demonstrating that while the choice of priors does affect the results, the analysis is still relatively robust.  This is represented graphically:
+
+```{r plot-default-priors}
 plot(brms.fit)
 ```
 
-Several important things appear in this analysis including some default parameters. First the family of the association was assumed to be gaussian, with mu and sigma both linked as identity functions. The regression coefficients table looks slimilar with similar estimages (and no p-values). The Rhat terms of 1.00 indicate convergence which is good, it means that the sampling converged well. There are no p-values
+```{r plot-new-priors}
+plot(brms.fit.new.priors)
+```
+
+No where in these results are no p-values, so how do we get a sense of confidence around a parameter?
 
 ### Hypothesis Testing with BRMS
 
-So how do we get Bayes Factors and posterior probabilities. Lets say we want to test the hypothesis that `Speciesvirginica` was greater than the reference (setosa), that would mean the estimate would have to be greater than zero for this term
+How do we get Bayes Factors and posterior probabilities. Lets say we want to test the hypothesis that `Speciesvirginica` was greater than the reference (setosa), that would mean the estimate would have to be greater than zero for this term
 
 ```{r hypothesis}
-hypothesis(brms.fit, "Speciesvirginica > 0") 
+hypothesis(brms.fit.new.priors, "Speciesvirginica > 0") 
 ```
 
 This tabel shows the estimate, error and confidence intervals. The Evid.Ratio (infinity) is the Bayes Factor and the Post.Prob is the posterior probability. This suggests very high (extreme) confidence in that hypothesis being true. But now lets say we only care if virginica is 1.5 units greater than setosa. Those results look like this:
 
 ```{r hypothesis-2}
-hypothesis(brms.fit, "Speciesvirginica > 1.5") 
+hypothesis(brms.fit.new.priors, "Speciesvirginica > 1.5") 
 ```
 
 As you can see while the estimate is still positive (1.58-1.5=0.08), the Bayes Factor is less confident (3.8, so moderate confidence), and the posterior probability is 79%.
@@ -122,6 +173,7 @@ Lets visualize this a bit further:
 
 ```{r brms-results}
 posterior_samples <- as_draws_df(brms.fit) #sample from the posteriors
+posterior_samples.new.priors <- as_draws_df(brms.fit.new.priors) #sample from the posteriors
 library(ggplot2)
 
 ggplot(posterior_samples, aes(x = b_Speciesvirginica)) +
@@ -140,53 +192,7 @@ mcmc_areas(posterior_samples, pars = c("b_Speciesvirginica","b_Speciesversicolor
   lims(x=c(-0.5,3)) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "red") 
 ```
-
-## What About a Chi-Squared Equivalent
-
-```{r brms-chisq-data} 
-# Example data
-data <- data.frame(
-  group = c("group1", "group2"),
-  success = c(603, 521),
-  total = c(5200, 5142)
-)
-
-chisq.test(data[c(2,3)])
-```
-
-As you can see by $\chi^2$ test this is a barely significant enrichment of success in group 1
-
-```{r brms-chisq}
-#| output: false
-# Fit the model
-model <- brm(
-  bf(success | trials(total) ~ 0 + group),  # 0 + group removes the intercept
-  data = data,
-  family = binomial(link = "identity"), #this is the right model foe yes/no data
-  prior = c(prior(beta(1,1), class = b, lb = 0, ub = 1)), # uniform would be beta(1,1), perplexity suggested 2,6.  This sets the beta parameter (b, the fixed parameters) to be set with a lower bound of zero and an upper bound of 1
-  chains = 4, warmup = 1000, iter = 4000, seed = 123
-)
-```
-
-Note that in this case the priors will be defined as:
-
-* a uniform beta distribution, this is the conjugate prior for the p-parameter in the binomial distribution (see [this link](https://towardsdatascience.com/beta-distribution-intuition-examples-and-derivation-cf00f4db57af))
-* setting the lower and upper bound of b to be zero and 1
-
-```{r chisq-test-analysis}
-# Summarize the model
-summary(model)
-
-# plot
-plot(model)
-
-hypothesis(model,"groupgroup2<groupgroup1")
-
-# Posterior predictive checks
-pp_check(model)
-```
-
-By the Bayesian analysis there is a much stronger evidence ratio and a strong posterior probability that group1 > group 2.
+Hopefully this gives you a sense on how a Bayesian approach can be applied in general.  Next we will look at how to do some standard analyses commonly done with null hypothesis significance testing using brms.
 
 Note this script used some examples generated by [perplexity.ai](https://www.perplexity.ai/) and then modified further
 

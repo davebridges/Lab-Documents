@@ -8,7 +8,7 @@ execute:
   keep-md: true
   message: false
   warning: false
-editor: visual
+editor: source
 ---
 
 
@@ -119,85 +119,171 @@ Using brms the model specification is the same, though it takes a few seconds lo
 library(brms)
 brms.fit <- brm(Sepal.Length~Species, data=iris,
                 family = gaussian(),
-                prior = c(
-                  set_prior("normal(0, 10)", class = "Intercept"),
-                  set_prior("normal(0, 5)", class = "b")),
                 sample_prior = TRUE) #required for hypothesis testing
 ```
 :::
 
 
-Lets walk through this.  First the model call looks similar to before.  We expect the errors to be normally distributed so used a gaussian distribution.  We set our priors as follows:
+Lets walk through this.  First the model call looks similar to before.  We expect the residual errors to be normally distributed so used a gaussian distribution (which is the same thing for this package).  The main difference is that we should set our priors probabilities.
 
-* Intercept is a value of zero with a sd of 10, fit to a normal distribution
-* Beta coefficients are set to a value of zero with a sd of 5.
+### Setting Prior Probabilities for use in BRM
 
-Both of these are somewhat non-informative priors and presume we know very little about the data.  We could for example use `mean(iris$Sepal.Length)` and `sd(iris$Sepal.Length)` as Intercept priors presuming we know something about the shape of the data but not the effects of the Species.
+We may not have noticed this but in the call above we just used the default priors.
 
 
 ::: {.cell}
 
 ```{.r .cell-code}
-summary(brms.fit) 
+prior_summary(brms.fit) %>% kable(caption="Default priors for a brms model of Sepal Length")
 ```
 
-::: {.cell-output .cell-output-stdout}
+::: {.cell-output-display}
 
+
+Table: Default priors for a brms model of Sepal Length
+
+|prior                  |class     |coef              |group |resp |dpar |nlpar |lb |ub |source  |
+|:----------------------|:---------|:-----------------|:-----|:----|:----|:-----|:--|:--|:-------|
+|                       |b         |                  |      |     |     |      |   |   |default |
+|                       |b         |Speciesversicolor |      |     |     |      |   |   |default |
+|                       |b         |Speciesvirginica  |      |     |     |      |   |   |default |
+|student_t(3, 5.8, 2.5) |Intercept |                  |      |     |     |      |   |   |default |
+|student_t(3, 0, 2.5)   |sigma     |                  |      |     |     |      |0  |   |default |
+
+
+:::
+:::
+
+
+This means that for the beta coefficients (b) teh priors were set as flat priors.  The intercept wsa set as Student's *t* distribution (three degrees of freedom, location 5.8, scale $\sigma$ of 2.5) and the sigma (error) was set to a similar distributiob but centered around zero.  Where did these defaults come from?  Well the mean sepal lenghti is 5.8433333 which is why the intercept was set to that, this seems reasonable.  But what about the distributions chosen
+
+* **Flat Prior** means the b coefficient is equally likely to be any value, this is a non-informative prior.
+* **Students' t** distributions have heavier tails than normal/gaussian distributions so allow for outliers more easily to be modelled.  Again,  for the Interecept it is centered around the mean for the data.  
+
+This is the default, and presumes you know little about your data, of course since this is a Bayesian approach you could provide more or less information about the model parameters based on your prior knowledge.
+
+There are three methods by which you could thinkg about your prior distributions.  You could have *weakly informative priors* as we have above, or *strongly informative priors* if you know a lot about the system.  
+
+Lets say we have some information about Iris because we have been working on this for a while, but havent investigated the effect of species.  We could therefore set our priors as follows:
+
+* Intercept is a value of 5.8433333 with a sd of 0.8280661, fit to a normal distribution
+* Beta coefficients are set to a value of zero with a sd of 0.5, also fit to a normal distribution.
+* Set the residual standard deviation (sigma) as mean zero, three degrees of freedom with a sd of 0.5 set to a Student's *t* distribution.
+
+Both of these are somewhat non-informative priors and presume we something but not a lot about the data.  We could also set lower or upper bounds for these distributions if needed (lb and ub) but we will skip that for now.
+
+
+::: {.cell}
+
+```{.r .cell-code}
+sepal_length_mean <- mean(iris$Sepal.Length)
+sepal_length_sd <- sd(iris$Sepal.Length)
+new.priors <- c(
+    # Prior for the Intercept
+    set_prior(paste0("normal(", sepal_length_mean, ", ", sepal_length_sd, ")"), class = "Intercept"),
+    # Prior for all beta coefficients
+    set_prior("normal(0, 0.5)", class = "b"),
+    # Prior for the residual standard deviation (sigma)
+    set_prior("student_t(3, 0, 2.5)", class = "sigma")
+)
 ```
- Family: gaussian 
-  Links: mu = identity; sigma = identity 
-Formula: Sepal.Length ~ Species 
-   Data: iris (Number of observations: 150) 
-  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-         total post-warmup draws = 4000
+:::
 
-Regression Coefficients:
-                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept             5.01      0.07     4.87     5.15 1.00     3482     2708
-Speciesversicolor     0.93      0.10     0.73     1.13 1.00     3518     2975
-Speciesvirginica      1.58      0.10     1.38     1.78 1.00     3178     3003
 
-Further Distributional Parameters:
-      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma     0.52      0.03     0.46     0.58 1.00     4077     2944
+Now lets re-run the analysis
 
-Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
-and Tail_ESS are effective sample size measures, and Rhat is the potential
-scale reduction factor on split chains (at convergence, Rhat = 1).
+
+::: {.cell}
+
+```{.r .cell-code}
+brms.fit.new.priors <- brm(Sepal.Length~Species, data=iris,
+                family = gaussian(),
+                prior = new.priors,
+                sample_prior = TRUE) 
 ```
+:::
+
+
+#### Comparing the Results
+
+
+::: {.cell}
+
+```{.r .cell-code}
+fixef(brms.fit)  %>% kable(caption="Fixed effects from default priors")
+```
+
+::: {.cell-output-display}
+
+
+Table: Fixed effects from default priors
+
+|                  |  Estimate| Est.Error|      Q2.5|    Q97.5|
+|:-----------------|---------:|---------:|---------:|--------:|
+|Intercept         | 5.0082133| 0.0742700| 4.8613485| 5.156063|
+|Speciesversicolor | 0.9281573| 0.1055672| 0.7190657| 1.127692|
+|Speciesvirginica  | 1.5779339| 0.1039386| 1.3740272| 1.776359|
 
 
 :::
 
 ```{.r .cell-code}
-pp_check(brms.fit) #checks that posterior probabilities converge
+fixef(brms.fit.new.priors) %>% kable(caption="Fixed effects from new priors")
 ```
 
 ::: {.cell-output-display}
-![](bayesian-analyses_files/figure-html/brms-analysis-1.png){width=672}
+
+
+Table: Fixed effects from new priors
+
+|                  |  Estimate| Est.Error|      Q2.5|    Q97.5|
+|:-----------------|---------:|---------:|---------:|--------:|
+|Intercept         | 5.0584680| 0.0712627| 4.9195021| 5.196334|
+|Speciesversicolor | 0.8593736| 0.1008378| 0.6624098| 1.054308|
+|Speciesvirginica  | 1.4970246| 0.1004892| 1.3007430| 1.682388|
+
+
 :::
+:::
+
+
+You will notice that they give us similar (but not identical) regression coefficients, demonstrating that while the choice of priors does affect the results, the analysis is still relatively robust.  This is represented graphically:
+
+
+::: {.cell}
 
 ```{.r .cell-code}
 plot(brms.fit)
 ```
 
 ::: {.cell-output-display}
-![](bayesian-analyses_files/figure-html/brms-analysis-2.png){width=672}
+![](bayesian-analyses_files/figure-html/plot-default-priors-1.png){width=672}
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
+plot(brms.fit.new.priors)
+```
+
+::: {.cell-output-display}
+![](bayesian-analyses_files/figure-html/plot-new-priors-1.png){width=672}
 :::
 :::
 
 
-Several important things appear in this analysis including some default parameters. First the family of the association was assumed to be gaussian, with mu and sigma both linked as identity functions. The regression coefficients table looks slimilar with similar estimages (and no p-values). The Rhat terms of 1.00 indicate convergence which is good, it means that the sampling converged well. There are no p-values
+No where in these results are no p-values, so how do we get a sense of confidence around a parameter?
 
 ### Hypothesis Testing with BRMS
 
-So how do we get Bayes Factors and posterior probabilities. Lets say we want to test the hypothesis that `Speciesvirginica` was greater than the reference (setosa), that would mean the estimate would have to be greater than zero for this term
+How do we get Bayes Factors and posterior probabilities. Lets say we want to test the hypothesis that `Speciesvirginica` was greater than the reference (setosa), that would mean the estimate would have to be greater than zero for this term
 
 
 ::: {.cell}
 
 ```{.r .cell-code}
-hypothesis(brms.fit, "Speciesvirginica > 0") 
+hypothesis(brms.fit.new.priors, "Speciesvirginica > 0") 
 ```
 
 ::: {.cell-output .cell-output-stdout}
@@ -205,7 +291,7 @@ hypothesis(brms.fit, "Speciesvirginica > 0")
 ```
 Hypothesis Tests for class b:
               Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio
-1 (Speciesvirginica) > 0     1.58       0.1     1.41     1.75        Inf
+1 (Speciesvirginica) > 0      1.5       0.1     1.33     1.66        Inf
   Post.Prob Star
 1         1    *
 ---
@@ -226,7 +312,7 @@ This tabel shows the estimate, error and confidence intervals. The Evid.Ratio (i
 ::: {.cell}
 
 ```{.r .cell-code}
-hypothesis(brms.fit, "Speciesvirginica > 1.5") 
+hypothesis(brms.fit.new.priors, "Speciesvirginica > 1.5") 
 ```
 
 ::: {.cell-output .cell-output-stdout}
@@ -234,9 +320,9 @@ hypothesis(brms.fit, "Speciesvirginica > 1.5")
 ```
 Hypothesis Tests for class b:
                 Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio
-1 (Speciesvirginica... > 0     0.08       0.1    -0.09     0.25       3.61
+1 (Speciesvirginica... > 0        0       0.1    -0.17     0.16       0.97
   Post.Prob Star
-1      0.78     
+1      0.49     
 ---
 'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
 '*': For one-sided hypotheses, the posterior probability exceeds 95%;
@@ -258,6 +344,7 @@ Lets visualize this a bit further:
 
 ```{.r .cell-code}
 posterior_samples <- as_draws_df(brms.fit) #sample from the posteriors
+posterior_samples.new.priors <- as_draws_df(brms.fit.new.priors) #sample from the posteriors
 library(ggplot2)
 
 ggplot(posterior_samples, aes(x = b_Speciesvirginica)) +
@@ -288,135 +375,7 @@ mcmc_areas(posterior_samples, pars = c("b_Speciesvirginica","b_Speciesversicolor
 :::
 :::
 
-
-## What About a Chi-Squared Equivalent
-
-
-::: {.cell}
-
-```{.r .cell-code}
-# Example data
-data <- data.frame(
-  group = c("group1", "group2"),
-  success = c(603, 521),
-  total = c(5200, 5142)
-)
-
-chisq.test(data[c(2,3)])
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-
-	Pearson's Chi-squared test with Yates' continuity correction
-
-data:  data[c(2, 3)]
-X-squared = 4.465, df = 1, p-value = 0.0346
-```
-
-
-:::
-:::
-
-
-As you can see by $\chi^2$ test this is a barely significant enrichment of success in group 1
-
-
-::: {.cell}
-
-```{.r .cell-code}
-# Fit the model
-model <- brm(
-  bf(success | trials(total) ~ 0 + group),  # 0 + group removes the intercept
-  data = data,
-  family = binomial(link = "identity"), #this is the right model foe yes/no data
-  prior = c(prior(beta(1,1), class = b, lb = 0, ub = 1)), # uniform would be beta(1,1), perplexity suggested 2,6.  This sets the beta parameter (b, the fixed parameters) to be set with a lower bound of zero and an upper bound of 1
-  chains = 4, warmup = 1000, iter = 4000, seed = 123
-)
-```
-:::
-
-
-Note that in this case the priors will be defined as:
-
-* a uniform beta distribution, this is the conjugate prior for the p-parameter in the binomial distribution (see [this link](https://towardsdatascience.com/beta-distribution-intuition-examples-and-derivation-cf00f4db57af))
-* setting the lower and upper bound of b to be zero and 1
-
-
-::: {.cell}
-
-```{.r .cell-code}
-# Summarize the model
-summary(model)
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
- Family: binomial 
-  Links: mu = identity 
-Formula: success | trials(total) ~ 0 + group 
-   Data: data (Number of observations: 2) 
-  Draws: 4 chains, each with iter = 4000; warmup = 1000; thin = 1;
-         total post-warmup draws = 12000
-
-Regression Coefficients:
-            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-groupgroup1     0.12      0.00     0.11     0.12 1.00    10010     8097
-groupgroup2     0.10      0.00     0.09     0.11 1.00    11144     8099
-
-Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
-and Tail_ESS are effective sample size measures, and Rhat is the potential
-scale reduction factor on split chains (at convergence, Rhat = 1).
-```
-
-
-:::
-
-```{.r .cell-code}
-# plot
-plot(model)
-```
-
-::: {.cell-output-display}
-![](bayesian-analyses_files/figure-html/chisq-test-analysis-1.png){width=672}
-:::
-
-```{.r .cell-code}
-hypothesis(model,"groupgroup2<groupgroup1")
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-Hypothesis Tests for class b:
-                Hypothesis Estimate Est.Error CI.Lower CI.Upper Evid.Ratio
-1 (groupgroup2)-(gr... < 0    -0.01      0.01    -0.02        0     122.71
-  Post.Prob Star
-1      0.99    *
----
-'CI': 90%-CI for one-sided and 95%-CI for two-sided hypotheses.
-'*': For one-sided hypotheses, the posterior probability exceeds 95%;
-for two-sided hypotheses, the value tested against lies outside the 95%-CI.
-Posterior probabilities of point hypotheses assume equal prior probabilities.
-```
-
-
-:::
-
-```{.r .cell-code}
-# Posterior predictive checks
-pp_check(model)
-```
-
-::: {.cell-output-display}
-![](bayesian-analyses_files/figure-html/chisq-test-analysis-2.png){width=672}
-:::
-:::
-
-
-By the Bayesian analysis there is a much stronger evidence ratio and a strong posterior probability that group1 > group 2.
+Hopefully this gives you a sense on how a Bayesian approach can be applied in general.  Next we will look at how to do some standard analyses commonly done with null hypothesis significance testing using brms.
 
 Note this script used some examples generated by [perplexity.ai](https://www.perplexity.ai/) and then modified further
 
@@ -434,7 +393,7 @@ sessionInfo()
 ```
 R version 4.4.1 (2024-06-14)
 Platform: x86_64-apple-darwin20
-Running under: macOS Sonoma 14.6
+Running under: macOS Sonoma 14.6.1
 
 Matrix products: default
 BLAS:   /Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/lib/libRblas.0.dylib 
